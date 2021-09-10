@@ -1,3 +1,5 @@
+etl/data/eu
+etl/data/na
 # Logs
 logs
 *.log
