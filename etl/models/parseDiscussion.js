@@ -9,6 +9,6 @@ module.exports = async function parseDiscussion(discussion) {
 
   // Logic here then comments
 
-  // await parseComments(discussion.comments);
+  await parseComments(discussion.comments);
   return;
 };
