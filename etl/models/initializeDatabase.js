@@ -37,10 +37,14 @@ module.exports = async function initializeDatabase() {
 
   // Create Threads Database
   const createThreadsTableQuery = `
+    CREATE TABLE IF NOT EXISTS threads (
+
+    );
   `;
 
   // Create Comments Database
   const createCommentsTableQuery = `
+
   `;
 
   const client = await pool.connect();
