@@ -19,6 +19,6 @@ module.exports = async function parseApplication({ id, name, shortName, locale})
   } catch (e) {
     console.log(e);
   } finally {
-    client.release();
+    return client.release();
   }
 };

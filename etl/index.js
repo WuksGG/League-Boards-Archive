@@ -3,6 +3,7 @@ const zlib = require('zlib');
 const path = require('path');
 require('dotenv').config('.env');
 
+const { pool } = require('./helpers/database');
 const parseDiscussion = require('./models/parseDiscussion');
 const initializeDatabase = require('./models/initializeDatabase');
 const pathname = path.join(__dirname, 'data', 'eu', 'posts');
@@ -34,5 +35,6 @@ async function etl() {
   } else {
     console.log('No valid argument provided.');
   }
+  // await pool.end();
   console.log('Tasks Complete!');
 })();

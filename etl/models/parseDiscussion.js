@@ -4,10 +4,11 @@ const parseApplication = require('./parseApplication');
 
 module.exports = async function parseDiscussion(discussion) {
   // console.log(discussion);
-  await parseApplication(discussion.application);
+  // console.log(discussion.content.attachments);
+  // await parseApplication(discussion.application);
   // await parseUser(discussion.user);
 
-  // Logic here then comments
+  // Discussion Logic here then comments
 
   await parseComments(discussion.comments);
   return;
