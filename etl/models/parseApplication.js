@@ -15,7 +15,16 @@ module.exports = async function parseApplication({ id, name, shortName, locale})
 
   const client = await pool.connect();
   try {
-    // const result = client.query(`SELECT * FROM test`);
+    await client.query(`
+      INSERT INTO categories (
+        id,
+        name,
+        shortname,
+        locale
+      ) VALUES (
+        $1, $2, $3, $4
+      );
+    `, [id, name, shortName, locale]);
   } catch (e) {
     console.log(e);
   } finally {

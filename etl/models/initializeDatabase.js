@@ -4,9 +4,9 @@ module.exports = async function initializeDatabase() {
   console.log('Initializing Database...');
   // Drop Tables
   const dropQuery = `
-    DROP TABLE IF EXISTS categories;
-    DROP TABLE IF EXISTS threads;
     DROP TABLE IF EXISTS comments;
+    DROP TABLE IF EXISTS threads;
+    DROP TABLE IF EXISTS categories;
     DROP TABLE IF EXISTS users;
   `;
 
@@ -41,7 +41,7 @@ module.exports = async function initializeDatabase() {
       id VARCHAR(15) PRIMARY KEY,
       title VARCHAR(150) NOT NULL,
       applicationid VARCHAR(20) NOT NULL REFERENCES categories(id),
-      userid INTEGER NOT NULL REFERENCES users(id),
+      userid INTEGER REFERENCES users(id),
       upvotes INTEGER,
       downvotes INTEGER,
       viewcount INTEGER,
@@ -51,13 +51,19 @@ module.exports = async function initializeDatabase() {
       modifiedat TIMESTAMP WITH TIME ZONE,
       lastcommentedat TIMESTAMP WITH TIME ZONE,
       contenttype VARCHAR(30),
-      thumbnail VARCHAR(500),
-      body VARCHAR,
+      content JSONB,
       issticky BOOLEAN,
       isglobalsticky BOOLEAN,
       hasriotercomments BOOLEAN
     );
   `;
+  /*
+  content {
+    body
+    body_html
+    pinned
+  }
+  */
 
   // Create Comments Database
   const createCommentsTableQuery = `
