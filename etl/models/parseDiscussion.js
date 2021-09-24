@@ -12,6 +12,8 @@ module.exports = async function parseDiscussion(discussion) {
     await parseUser(discussion.user);
   }
 
+  // process.stdout.write(`${discussion.id} `)
+
   // Discussion Logic here then comments
   const client = await pool.connect();
   try {
