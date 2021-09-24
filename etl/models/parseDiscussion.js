@@ -1,10 +1,9 @@
 const parseUser = require('./parseUser');
 const parseComments = require('./parseComments');
 const parseApplication = require('./parseApplication');
-const { pool, redis } = require('../helpers/database');
+const { pool } = require('../helpers/database');
 
 module.exports = async function parseDiscussion(discussion) {
-  /*
   // Application Logic
   await parseApplication(discussion.application);
 
@@ -62,7 +61,7 @@ module.exports = async function parseDiscussion(discussion) {
   } finally {
     client.release();
   }
-  */
-  await parseComments(discussion.comments);
+
+  await parseComments(discussion.comments, discussion.id);
   return;
 };

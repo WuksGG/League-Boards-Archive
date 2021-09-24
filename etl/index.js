@@ -13,7 +13,7 @@ async function etl() {
   console.log('Starting ETL...');
   await redis.users.flushdb();
   filenames.forEach((filename) => {
-    if (!filename.includes('EFAOrptV') && !filename.includes('6H2K9w5K')) return;
+    // if (!filename.includes('EFAOrptV') && !filename.includes('6H2K9w5K')) return;
     // 3eWpXbJi html
     // slFBEUB8/discussions/3eWpXbJi
     // if (!filename.includes('7MeLoywU')) return;

@@ -23,7 +23,7 @@ module.exports = async function initializeDatabase() {
   // Create Users Database
   const createUsersTableQuery = `
     CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY,
+      id BIGINT PRIMARY KEY,
       name VARCHAR(50) NOT NULL,
       summonerlevel INTEGER NOT NULL,
       profileicon INTEGER,
@@ -41,7 +41,7 @@ module.exports = async function initializeDatabase() {
       id VARCHAR(15) PRIMARY KEY,
       title VARCHAR(150) NOT NULL,
       applicationid VARCHAR(20) NOT NULL REFERENCES categories(id),
-      userid INTEGER REFERENCES users(id),
+      userid BIGINT REFERENCES users(id),
       upvotes INTEGER,
       downvotes INTEGER,
       viewcount INTEGER,
@@ -72,7 +72,7 @@ module.exports = async function initializeDatabase() {
       threadid VARCHAR(15) NOT NULL REFERENCES threads(id),
       commentid VARCHAR NOT NULL,
       message VARCHAR,
-      userid INTEGER NOT NULL REFERENCES users(id),
+      userid BIGINT NOT NULL REFERENCES users(id),
       parentcommentid VARCHAR,
       createdat TIMESTAMP WITH TIME ZONE,
       modifiedat TIMESTAMP WITH TIME ZONE,
