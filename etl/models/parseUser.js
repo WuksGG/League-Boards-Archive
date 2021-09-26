@@ -40,7 +40,7 @@ module.exports = async function parseUser({
       createdAt,
       banEndsAt
     ]);
-    redis.users.set(id, 1);
+    await redis.users.set(id, 1);
   } catch (e) {
     // process.stdout.write(`${e.detail} `);
   } finally {

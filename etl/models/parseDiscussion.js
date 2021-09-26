@@ -8,10 +8,9 @@ module.exports = async function parseDiscussion(discussion) {
   await parseApplication(discussion.application);
 
   // User Logic
-  if (discussion.user) {
+  if (discussion.user?.id) {
     await parseUser(discussion.user);
   }
-
   // process.stdout.write(`${discussion.id} `)
 
   // Discussion Logic here then comments
@@ -43,7 +42,7 @@ module.exports = async function parseDiscussion(discussion) {
       discussion.id,
       discussion.title,
       discussion.application.id,
-      discussion.user.id,
+      discussion.user?.id,
       discussion.upVotes,
       discussion.downVotes,
       discussion.viewCount,

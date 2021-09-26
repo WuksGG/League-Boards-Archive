@@ -1,10 +1,7 @@
 const { pool, redis } = require('../helpers/database');
 
-const applications = [];
-
 module.exports = async function parseApplication({ id, name, shortName, locale}) {
-  if (applications.includes(id)) return;
-  applications.push(id);
+  if (await redis.categories.get(id)) return;
   const client = await pool.connect();
   try {
     await client.query(`
@@ -17,8 +14,14 @@ module.exports = async function parseApplication({ id, name, shortName, locale})
         $1, $2, $3, $4
       );
     `, [id, name, shortName, locale]);
+    await redis.categories.set(id, 1);
   } catch (e) {
-    console.log(e);
+    if (e.code === '23505') {
+      await redis.categories.set(id, 1);
+      process.stdout.write(`\r${e.detail}`);
+    } else {
+      process.stdout.write(`\n${e.detail}\n`);
+    }
   } finally {
     return client.release();
   }

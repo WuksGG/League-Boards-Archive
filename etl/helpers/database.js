@@ -15,6 +15,13 @@ const redis = {
     family: process.env.REDISFAMILY,
     password: process.env.REDISPASSWORD,
     db: 1
+  }),
+  categories: new Redis({
+    port: process.env.REDISPORT,
+    host: process.env.REDISHOST,
+    family: process.env.REDISFAMILY,
+    password: process.env.REDISPASSWORD,
+    db: 2
   })
 };
 

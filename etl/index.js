@@ -21,7 +21,7 @@ const callback = (err, data) => {
       return err;
     }
     const { discussion } = JSON.parse(buffer.toString('utf8'));
-    process.stdout.write(`${discussion.id} `)
+    process.stdout.write(`\r${discussion.id}                 `)
     parseDiscussion(discussion);
   });
 };
@@ -35,6 +35,7 @@ const q = async.queue(function({ filename }, callback) {
 async function etl() {
   console.log('Starting ETL...');
   await redis.users.flushdb();
+  await redis.categories.flushdb();
   const mappedFilenames = filenames.map((filename) => ({ filename: path.join(pathname, filename) }));
   q.push(mappedFilenames, callback);
 }
