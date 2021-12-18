@@ -13,7 +13,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { locale: 'en', category: 'test'} },
+      { params: { realm: 'na', category: 'test'} },
     ],
     fallback: false,
   };

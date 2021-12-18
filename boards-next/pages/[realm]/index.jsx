@@ -15,7 +15,8 @@ export async function getStaticProps() {
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { locale: 'en' } }
+      { params: { realm: 'na' } },
+      { params: { realm: 'eu' } }
     ],
     fallback: false,
   }

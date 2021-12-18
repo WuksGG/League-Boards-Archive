@@ -1,20 +1,28 @@
 .container {
   font-family: 'Proxima Nova W02';
   background-color: #ae2e2e;
-  color: white;
+  color: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 60px;
-  padding: 0 20px;
   width: 100%;
+  justify-content: center;
 }
 
 .logo {
   font-family: 'Proxima Nova W02';
-  background-color: transparent;
+  font-weight: bold;
 }
 
 .menu {
   display: flex;
+}
+
+.menuitem {
+  margin-left: 15px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
 }

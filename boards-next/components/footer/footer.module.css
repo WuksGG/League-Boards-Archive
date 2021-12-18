@@ -1,9 +1,30 @@
 .container {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   color: #fff;
-  height: 40px;
   background-color: #ae2e2e;
   font-family: "Beaufort for LOL";
+  padding: 20px 0px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menuitem {
+  flex: 1 0 110px;
+  text-align: center;
+}
+
+.copyright {
+  margin-top: 15px;
 }

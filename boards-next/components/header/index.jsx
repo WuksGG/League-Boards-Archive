@@ -8,14 +8,14 @@ export default function Header() {
 
   return (
     <div id="header" className={styles.container}>
-      <div className="pw">
-        <Link href={Router.query.locale}>
+      <div className={`${styles.inner} pw`}>
+        <Link href={Router.query.realm}>
           <a className={styles.logo}>Boards Home</a>
         </Link>
         <div className={styles.menu}>
-          <div>Categories</div>
-          <div>Contact</div>
-          <div>About</div>
+          <a className={styles.menuitem}>Categories</a>
+          <a className={styles.menuitem}>Contact</a>
+          <a className={styles.menuitem}>About</a>
         </div>
       </div>
     </div>

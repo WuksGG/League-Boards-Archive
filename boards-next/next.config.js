@@ -4,8 +4,8 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/en',
-        permanent: true,
+        destination: '/eu',
+        permanent: false,
       },
     ]
   },

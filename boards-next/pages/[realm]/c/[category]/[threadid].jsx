@@ -7,7 +7,7 @@ export default function ThreadPage(props) {
 export async function getServerSideProps(context) {
   return {
     props: {
-      'test': 'ok',
+
     }
   }
 }
