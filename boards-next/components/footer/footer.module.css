@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  height: 40px;
+  background-color: #ae2e2e;
+  font-family: "Beaufort for LOL";
+}
