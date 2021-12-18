@@ -97,9 +97,18 @@ html, body {
   color: #fff;
 }
 
+html {
+  margin-left: calc(100vw - 100%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h2 {
+  color: #fff;
+  font-family: "Proxima Nova W02";
 }
 
 .pw {

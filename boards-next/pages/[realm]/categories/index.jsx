@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import styles from './categories.module.css';
@@ -12,10 +11,13 @@ export default function CategoriesPage(props) {
       <Head>
         <title>Categories | EU Boards Archive</title>
       </Head>
-      <div className={styles.container}>
-        {props.categories.map((category) => {
-          return <CategoryTile data={category} key={category.id} />
-        })}
+      <div className={styles.outer}>
+        <h2>Categories</h2>
+        <div className={styles.container}>
+          {props.categories.map((category) => {
+            return <CategoryTile data={category} key={category.id} />
+          })}
+        </div>
       </div>
     </>
   )
@@ -23,7 +25,6 @@ export default function CategoriesPage(props) {
 
 export async function getStaticProps(context) {
   const test = await getCategories(context.params.realm);
-
   return {
     props: {
       categories: test.rows,

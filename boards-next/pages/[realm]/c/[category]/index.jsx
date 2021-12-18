@@ -1,29 +1,17 @@
-import { getCategories } from '../../../../models/categories';
+// This component lists the most recent threads in a specific category.
 
 export default function CategoryView(props) {
+  console.log(props);
   return (
     <div>category view</div>
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
+  const { getThreadsFromCategory } = (await import('../../../../models/categories'));
+  const data = await getThreadsFromCategory(context);
+
   return {
     props: {}
   }
-}
-
-export async function getStaticPaths() {
-  const categories = await getCategories();
-  const transformedCategories = categories.rows.map((category) => {
-    return {
-      params: {
-        realm: 'eu',
-        category: category.id
-      }
-    }
-  })
-  return {
-    paths: transformedCategories,
-    fallback: false,
-  };
 }

@@ -1,7 +1,8 @@
 .container {
-  background-color: gray;
-  display: flex;
-  flex: 0 0 380px;
-  flex-direction: column;
+  background-color: #c2c2c2;
+  font-family: "Beaufort for LOL";
+  color: #000;
+  border: 1px solid #a4a4a4;
   margin-bottom: 20px;
+  cursor: pointer;
 }

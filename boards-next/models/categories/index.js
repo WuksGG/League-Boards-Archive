@@ -11,3 +11,9 @@ export async function getCategories(realm) {
     client.release();
   }
 }
+
+export async function getThreadsFromCategory(context) {
+  console.log('hello');
+  console.log(context.query);
+  return 1;
+}
