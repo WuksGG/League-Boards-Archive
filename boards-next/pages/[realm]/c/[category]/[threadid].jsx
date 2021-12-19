@@ -28,6 +28,41 @@ export default function ThreadPage({
   //     },
   //     marker: '{'
   //   });
+
+  const lolAssets = {
+    name: 'lolAssets',
+    level: 'inline',
+    start(src) { return src.match(/{{/)?.index; },
+    tokenizer(src, tokens) {
+      const rule = /{{[a-z]{3,10}:[a-z\-]{3,10}}}/;
+      const match = rule.exec(src);
+      if (match) {
+        const token = {
+          type: 'lolAssets',
+          raw: match[0],
+          // text: match[0].trim(),
+          // tokens: []
+        };
+        this.lexer.inline(token.text, token.tokens);
+        return token;
+      }
+    },
+    renderer(token) {
+      const tokenParts = token.raw.slice(2, -2).split(':');
+      // handle sticker
+      // handle champion
+      const stickers = {
+        "sg-kiko": "https://lolstatic-a.akamaihd.net/stickers/starguardian140/sg-kiko.png",
+        "slayer-pantheon-thumbsnotchecked": "https://lolstatic-a.akamaihd.net/stickers/slayer140/slayer-pantheon-thumbs.png"
+      }
+      // return `<div>test</div>`;
+      if (!stickers[tokenParts[1]]) { return token.raw; }
+      return `<span class="sticker" style="background-image: url(${stickers[tokenParts[1]]})"></span>`;
+    }
+  };
+
+  marked.use({ extensions: [lolAssets] });
+
   const markdown = marked.parse(content.body);
   // const markdown = marked.parse('{{sticker:sg-kiko}}');
   console.log(markdown);
@@ -52,7 +87,15 @@ export default function ThreadPage({
 export async function getServerSideProps(context) {
   const { getDiscussion } = await import('../../../../models/discussions');
   const { rows } = await getDiscussion(context);
-  const { results } = rows[0];
+  const results = rows[0]?.results;
+
+  if (!results) {
+    return {
+      props: {
+        notFound: true,
+      }
+    }
+  }
 
   return {
     props: results

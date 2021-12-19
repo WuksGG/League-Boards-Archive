@@ -91,6 +91,13 @@
   font-weight: 500;
 }
 
+.sticker {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  display: inline-block;
+}
+
 html, body {
   background-color: #252524;
   margin: 0;
