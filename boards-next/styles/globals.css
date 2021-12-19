@@ -91,9 +91,10 @@
   font-weight: 500;
 }
 
+/* Content is 140, Comments are 100 */
 .sticker {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   background-size: cover;
   display: inline-block;
 }
