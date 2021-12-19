@@ -1,6 +1,6 @@
 export default function ThreadPage(props) {
   return (
-    <div>test</div>
+    <div>discussionview</div>
   )
 }
 

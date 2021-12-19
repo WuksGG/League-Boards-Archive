@@ -8,7 +8,7 @@ export default function CategoryTile({ data: { id, name, shortname, locale }} ) 
   console.log();
 
   return (
-    <Link href={`/${router.query.realm}/c/${id}`}>
+    <Link href={`/${router.query.realm}/c/${shortname}`}>
       <div className={styles.container}>
           <div>{id}</div>
           <div>{shortname}</div>

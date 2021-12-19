@@ -91,6 +91,8 @@ module.exports = async function initializeDatabase() {
     await client.query(createCommentsTableQuery);
     await client.query(`CREATE INDEX ON threads (createdat)`);
     await client.query(`CREATE INDEX ON comments (createdat)`);
+    await client.query(`CREATE INDEX ON categories (shortname)`);
+    await client.query(`CREATE INDEX ON threads (applicationid)`);
     await client.query(`CREATE INDEX thread_ts_idx ON threads (applicationid, createdat)`);
     await client.query(`CREATE INDEX comment_ts_idx ON comments (threadid, createdat)`);
   } catch (e) {

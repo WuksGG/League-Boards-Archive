@@ -1,10 +1,12 @@
 // This component lists the most recent threads in a specific category.
 
-export default function CategoryView(props) {
-  console.log(props);
+import DiscussionsList from '../../../../components/discussionsList';
+
+export default function CategoryView({ category, threads }) {
   return (
     <div>
-      <h2>{props.category.name}</h2>
+      <h2>{category.name}</h2>
+      <DiscussionsList threads={threads}/>
     </div>
   );
 }
@@ -12,7 +14,7 @@ export default function CategoryView(props) {
 export async function getServerSideProps(context) {
   const { getThreadsFromCategory } = (await import('../../../../models/categories'));
   const [data] = (await getThreadsFromCategory(context)).rows;
-  console.log(data);
+
   return {
     props: {
       category: data.catdata,
