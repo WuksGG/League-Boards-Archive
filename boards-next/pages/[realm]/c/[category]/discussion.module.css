@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  font-family: "Beaufort for LOL";
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.discussion {
+  max-width: 980px;
+  width: 100%;
+  background-color: #333333;
+  border: 1px solid #8a8a8a;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.discussion-title {
+  border-bottom: 1px solid #bcbcbc;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.35em;
+}

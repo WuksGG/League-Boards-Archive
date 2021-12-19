@@ -10,7 +10,7 @@ export default function Header() {
     <div id="header" className={styles.container}>
       <div className={`${styles.inner} pw`}>
         <Link href={`/${router.query.realm || 'eu'}`}>
-          <a className={styles.logo}>Boards Home</a>
+          <a className={styles.logo}>League of Legends Boards Archive</a>
         </Link>
         <div className={styles.menu}>
           <Link href={`/${router.query.realm || 'eu'}/categories`}>

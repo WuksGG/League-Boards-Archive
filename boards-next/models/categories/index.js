@@ -96,7 +96,7 @@ export async function getThreadsFromCategory(context) {
           'modifiedAt', t.modifiedat,
           'lastCommentedAt', t.lastcommentedat,
           'contentType', t.contenttype,
-          'content', (SELECT LEFT(t.content ->> 'body', 50)),
+          'content', (SELECT LEFT(t.content ->> 'body', 150)),
           'isSticky', t.issticky,
           'isGlobalSticky', t.isglobalsticky,
           'hasRioterComments', t.hasriotercomments

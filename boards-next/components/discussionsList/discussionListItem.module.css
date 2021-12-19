@@ -13,10 +13,19 @@
 .thread-title {
   font-weight: 500;
   margin-bottom: 2px;
-  color: #ffed97;
+  color: #f2f2f2;
 }
 .smalltext {
   font-size: 0.8em;
+}
+
+.meta {
+  font-size: 0.85em;
+  color: #eaeaea;
+}
+
+.link {
+  color: #ffed97;
 }
 
 .col-1, .col-3, .col-4 {

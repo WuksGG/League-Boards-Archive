@@ -7,9 +7,7 @@ export default function DiscussionListItem({ thread }) {
   const netVotes = +thread.upVotes - +thread.downVotes;
 
   const router = useRouter();
-  console.log(router);
 
-  // console.log(thread);
   return (
     <Link href={`/${router.query.realm}/c/${thread.application.shortname}/${thread.id}`}>
       <div className={styles.listItem}>
@@ -18,14 +16,18 @@ export default function DiscussionListItem({ thread }) {
           <div className={styles.smalltext}>votes</div>
         </div>
         <div className={styles['col-2']}>
-          <div className={styles['thread-title']}>{thread.title}</div>
-          <span>
+          <div>
+            <Link href={`/${router.query.realm}/c/${thread.application.shortname}/${thread.id}`}>
+              <a title={thread.content} className={styles['thread-title']}>{thread.title}</a>
+            </Link>
+          </div>
+          <span className={styles.meta}>
             {
               thread.user
-                ? <span>by <Link href='/'>{thread.user.name}</Link> ({thread.user.realm}) </span>
+                ? <span>by <Link href='/'><a className={styles.link}>{thread.user.name}</a></Link> ({thread.user.realm}) </span>
                 : null
             }
-            in {thread.application.name} <TimeAgo date={thread.createdAt} />
+            in <Link href={`/${router.query.realm}/c/${thread.application.shortname}`}><a className={styles.link}>{thread.application.name}</a></Link> <TimeAgo date={thread.createdAt} />
           </span>
         </div>
         <div className={styles['col-3']}>

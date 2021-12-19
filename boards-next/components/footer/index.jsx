@@ -10,7 +10,7 @@ export default function Footer() {
           <a className={styles.menuitem}>Privacy Policy</a>
         </div>
         <div className={styles.copyright}>
-          Copyright &copy; 2021 Michael Chan.
+          Copyright &copy; 2021 Michael Chan and Runeterra.net. The usual disclaimers will be put here.
         </div>
       </div>
     </div>
