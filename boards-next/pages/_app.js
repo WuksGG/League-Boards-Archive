@@ -3,8 +3,7 @@ import Layout from '../components/layout';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
-  console.log(pageProps.pageTitle || pageProps.title);
-  const pageTitle = pageProps.pageTitle || pageProps.title;
+  const pageTitle = pageProps.pageTitle;
   return (
     <Layout>
       <Head>

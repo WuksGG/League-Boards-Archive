@@ -2,15 +2,13 @@ import styles from './discussion.module.css';
 import TimeAgo from 'react-timeago';
 import Link from 'next/link';
 
+import Discussion from '../../../../components/discussion';
+
 import { marked } from 'marked';
 
 export default function ThreadPage({
+  data,
   query,
-  title,
-  user,
-  createdAt,
-  application,
-  content,
 }) {
   const lolAssets = {
     name: 'lolAssets',
@@ -23,10 +21,7 @@ export default function ThreadPage({
         const token = {
           type: 'lolAssets',
           raw: match[0],
-          //text: match[0].trim(),
-          // tokens: []
         };
-        //this.lexer.inline(token.text, token.tokens);
         return token;
       }
     },
@@ -81,43 +76,19 @@ export default function ThreadPage({
       // Stickers List: https://www.reddit.com/r/leagueoflegends/comments/fc9ra0/all_the_stickers_from_the_league_forums_in_one/
       // Thanks to u/DarkAndromeda31
       // https://drive.google.com/drive/folders/1uwcG2HwBKMzx2hE809b_tbbrn6pw704u
-      console.log(delimType, parseKey);
-      // if (!stickers[tokenParts[1]]) { return token.raw; }
-      // return `<div>test</div>`;
+
+      if (!stickers[parseKey]) { return token.raw; }
       return `<span class="sticker" style="background-image: url(${stickers[parseKey]})"></span>`;
     }
   };
 
   marked.use({ extensions: [lolAssets] });
 
-  const markdown = marked.parse(content.body);
-  console.log(query);
   return (
     <div className={styles.container}>
-      <h2>{application.name}</h2>
+      <h2>{data.application.name}</h2>
       <div className={styles.inner}>
-        <div className={styles.discussion}>
-          <div className={styles['discussion-title']}>
-            <div className={styles.title}>{title}</div>
-            <div className={styles.byline}>
-              <span className={styles.icon}>
-                <img src={user.isRioter ? `/assets/images/riot_fist.png` : `http://ddragon.leagueoflegends.com/cdn/11.24.1/img/profileicon/${user.profileIcon}.png`} />
-              </span>
-              <span>
-                <Link href={`/${query.realm}/player/${user.realm}/${user.name}`}>
-                  <a className={user.isRioter ? 'isRioter': null}>{user.name}</a>
-                </Link> ({user.realm})&nbsp;
-                submitted <TimeAgo date={createdAt} /> in&nbsp;
-                <Link href={`/${query.realm}/c/${application.shortName}`}>
-                  {application.name}
-                </Link>
-              </span>
-            </div>
-          </div>
-          <div className={styles.content}>
-            <div className={styles.body} dangerouslySetInnerHTML={{__html: markdown}}/>
-          </div>
-        </div>
+        <Discussion query={query} data={data} />
       </div>
     </div>
   );
@@ -138,7 +109,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      ...results,
+      pageTitle: results.title,
+      data: results,
       query: context.query
     }
   }
