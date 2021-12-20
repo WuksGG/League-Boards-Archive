@@ -272,7 +272,7 @@ export default function ThreadPage({
       console.log(handlers[delimType], parseKey);
       console.log(handlers[delimType](parseKey));
       const output = handlers[delimType](parseKey);
-      return output ? output : token.raw;
+      return output || token.raw;
 
     }
   };
