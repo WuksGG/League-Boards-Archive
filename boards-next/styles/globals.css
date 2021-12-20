@@ -125,6 +125,10 @@ h2 {
   display: flex;
 }
 
+.isRioter {
+  color: #d13639!important;
+}
+
 /*
 html,
 body {

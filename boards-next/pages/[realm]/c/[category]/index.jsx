@@ -17,6 +17,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
+      pageTitle: data.catdata.name,
       category: data.catdata,
       threads: data.result,
     }

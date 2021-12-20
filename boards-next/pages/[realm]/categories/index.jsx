@@ -7,19 +7,14 @@ import { getCategories } from '../../../models/categories';
 
 export default function CategoriesPage(props) {
   return (
-    <>
-      <Head>
-        <title>Categories | EU Boards Archive</title>
-      </Head>
-      <div className={styles.outer}>
-        <h2>Categories</h2>
-        <div className={styles.container}>
-          {props.categories.map((category) => {
-            return <CategoryTile data={category} key={category.id} />
-          })}
-        </div>
+    <div className={styles.outer}>
+      <h2>Categories</h2>
+      <div className={styles.container}>
+        {props.categories.map((category) => {
+          return <CategoryTile data={category} key={category.id} />
+        })}
       </div>
-    </>
+    </div>
   )
 }
 
@@ -27,6 +22,7 @@ export async function getStaticProps(context) {
   const test = await getCategories(context.params.realm);
   return {
     props: {
+      pageTitle: 'Categories',
       categories: test.rows,
     }
   }
