@@ -13,13 +13,16 @@ export default function CommentsHeader(props) {
         <div className={styles.count}>4 comments</div>
       </div>
       <div className={styles['row-2']}>
-        <Link href={{
-          pathname: '',
-          query: {
-            ...router.query,
-            show: router.query.show === 'flat' ? 'nested' : 'flat',
-          },
-        }}>
+        <Link
+          href={{
+            pathname: '',
+            query: {
+              ...router.query,
+              show: router.query.show === 'flat' ? 'nested' : 'flat',
+            },
+          }}
+          scroll={false}
+        >
           <a className={styles.toggleView}>{router.query.show === 'flat' ? 'Switch to Discussion View' : 'Switch to Chronological View'}</a>
         </Link>
       </div>
