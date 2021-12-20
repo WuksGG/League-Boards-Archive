@@ -7,8 +7,13 @@
   color: #ffed97;
 }
 
-.inner {
+.outer {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.inner {
+  max-width: 980px;
+  width: 100%;
 }

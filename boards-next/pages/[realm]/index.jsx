@@ -4,10 +4,11 @@ export default function HomePageWithLocale() {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+  console.log(context);
   return {
     props: {
-
+      pageTitle: context.params.realm.toUpperCase() + ' Boards Home',
     }
   }
 }

@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
   const test = await getCategories(context.params.realm);
   return {
     props: {
-      pageTitle: 'Categories',
+      pageTitle: context.params.realm.toUpperCase() + ' Categories',
       categories: test.rows,
     }
   }

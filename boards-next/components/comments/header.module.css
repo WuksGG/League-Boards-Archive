@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #666666;
+  border: 1px solid #8a8a8a;
+  padding: 20px 40px;
+}
+
+.heading {
+  font-size: 1.15em;
+  font-weight: 500;
+}
+
+.count {
+  margin-left: 13px;
+  font-size: 0.85em;
+  color: #e5e5e5;
+}
+
+.row-1 {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid #ffed97;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.row-2 {
+
+}
+
+.toggleView {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  color: #fffbc8!important;
+}

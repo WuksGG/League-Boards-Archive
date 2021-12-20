@@ -1,15 +1,13 @@
 
 .discussion {
-  max-width: 980px;
-  width: 100%;
-  background-color: #333333;
-  border: 1px solid #8a8a8a;
+  background-color: #303030;
+  border: 1px solid #545454;
   padding: 40px;
   box-sizing: border-box;
 }
 
 .discussion-title {
-  border-bottom: 1px solid #bcbcbc;
+  border-bottom: 1px solid #545454;
   margin-bottom: 25px;
   padding-bottom: 15px;
 }
