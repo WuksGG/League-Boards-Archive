@@ -1,5 +1,6 @@
 etl/data/eu
 etl/data/na
+.DS_Store
 # Logs
 logs
 *.log
