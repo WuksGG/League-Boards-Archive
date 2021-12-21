@@ -9,7 +9,17 @@ export default function DiscussionListItem({ thread }) {
   const router = useRouter();
 
   return (
-    <Link href={`/${router.query.realm}/c/${thread.application.shortname}/${thread.id}`}>
+    <Link
+      href={{
+        pathname: '/[realm]/c/[category]/[threadid]',
+        query: {
+          ...router.query,
+          category: thread.application.shortname,
+          threadid: thread.id,
+        },
+      }}
+      passHref
+    >
       <div className={styles.listItem}>
         <div className={styles['col-1']}>
           <div className={styles.bold}>{netVotes}</div>
