@@ -9,6 +9,7 @@
 .heading {
   font-size: 1.15em;
   font-weight: 500;
+  font-variant: small-caps;
 }
 
 .count {

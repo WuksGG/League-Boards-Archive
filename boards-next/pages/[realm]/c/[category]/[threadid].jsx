@@ -16,7 +16,7 @@ export default function ThreadPage({
       <div className={styles.outer}>
         <div className={styles.inner}>
           <Discussion query={query} data={data} />
-          <Comments />
+          <Comments commentCount={data.softComments} />
         </div>
       </div>
     </div>

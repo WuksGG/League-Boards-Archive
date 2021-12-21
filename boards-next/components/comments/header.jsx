@@ -3,14 +3,16 @@ import styles from './header.module.css';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-export default function CommentsHeader(props) {
+export default function CommentsHeader({
+  commentCount,
+}) {
   const router = useRouter();
   // console.log(router);
   return (
     <div className={styles.container}>
       <div className={styles['row-1']}>
         <div className={styles.heading}>Comments</div>
-        <div className={styles.count}>4 comments</div>
+        <div className={styles.count}>{commentCount} comments</div>
       </div>
       <div className={styles['row-2']}>
         <Link
