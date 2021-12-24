@@ -1,18 +1,19 @@
-import styles from './header.module.css';
-import Link from 'next/link';
-
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import AppContext from '../../store/AppContext';
+import styles from './header.module.css';
 
 export default function Header() {
   const router = useRouter();
-  // console.log(router);
+  const appContext = useContext(AppContext);
   return (
     <div id="header" className={styles.container}>
       <div className={`${styles.inner} pw`}>
         <Link href={{
           pathname: '/[realm]',
           query: {
-            'realm': router.query.realm,
+            'realm': router.query.realm || appContext.realm,
           },
         }}>
           <a className={styles.logo}>League of Legends Boards Archive</a>
@@ -21,7 +22,7 @@ export default function Header() {
           <Link href={{
             pathname: '/[realm]/categories',
             query: {
-              'realm': router.query.realm,
+              'realm': router.query.realm || appContext.realm,
             }
           }}>
             <a className={styles.menuitem}>Categories</a>

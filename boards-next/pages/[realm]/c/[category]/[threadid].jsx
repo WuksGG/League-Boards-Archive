@@ -30,10 +30,8 @@ export async function getServerSideProps(context) {
 
   if (!results) {
     return {
-      props: {
-        notFound: true,
-      }
-    }
+      notFound: true,
+    };
   }
 
   return {

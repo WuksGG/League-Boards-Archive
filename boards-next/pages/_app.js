@@ -1,17 +1,20 @@
-import '../styles/globals.css';
-import Layout from '../components/layout';
 import Head from 'next/head';
+import Layout from '../components/layout';
+import { AppContextProvider } from '../store/AppContext';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+function AppRoot({ Component, pageProps }) {
   const pageTitle = pageProps.pageTitle;
   return (
-    <Layout>
-      <Head>
-        <title>{pageTitle ? pageTitle + ' | ' : null}League Boards Archive</title>
-      </Head>
-      <Component {...pageProps} />
-    </Layout>
+    <AppContextProvider>
+      <Layout>
+        <Head>
+          <title>{pageTitle ? pageTitle + ' | ' : null}League Boards Archive</title>
+        </Head>
+        <Component {...pageProps} />
+      </Layout>
+    </AppContextProvider>
   )
 }
 
-export default MyApp
+export default AppRoot;
