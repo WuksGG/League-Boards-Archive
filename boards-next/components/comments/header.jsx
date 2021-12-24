@@ -7,7 +7,18 @@ export default function CommentsHeader({
   commentCount,
 }) {
   const router = useRouter();
-  // console.log(router);
+  const toggleCommentView = (e) => {
+    e.preventDefault();
+    router.push({
+      query: {
+        ...router.query,
+        show: router.query.show === 'flat' ? 'nested' : 'flat',
+      }
+    }, {}, {
+      shallow: true,
+      scroll: false,
+    });
+  };
   return (
     <div className={styles.container}>
       <div className={styles['row-1']}>
@@ -15,18 +26,17 @@ export default function CommentsHeader({
         <div className={styles.count}>{commentCount} comments</div>
       </div>
       <div className={styles['row-2']}>
-        <Link
-          href={{
-            pathname: '',
-            query: {
-              ...router.query,
-              show: router.query.show === 'flat' ? 'nested' : 'flat',
-            },
-          }}
-          scroll={false}
+        <a
+          href={`?show=${router.query.show === 'flat' ? 'nested' : 'flat'}`}
+          className={styles.toggleView}
+          onClick={toggleCommentView}
         >
-          <a className={styles.toggleView}>{router.query.show === 'flat' ? 'Switch to Discussion View' : 'Switch to Chronological View'}</a>
-        </Link>
+          {
+            router.query.show === 'nested' ?
+              'Switch to Chronological View' :
+              'Switch to Discussion View'
+          }
+        </a>
       </div>
     </div>
   );
