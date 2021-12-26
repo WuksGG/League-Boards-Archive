@@ -10,6 +10,7 @@ function AppRoot({ Component, pageProps }) {
       <Layout>
         <Head>
           <title>{pageTitle ? pageTitle + ' | ' : null}League Boards Archive</title>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <Component {...pageProps} />
       </Layout>
