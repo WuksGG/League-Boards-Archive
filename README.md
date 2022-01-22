@@ -24,10 +24,10 @@
     <img src="https://user-images.githubusercontent.com/27760344/150649814-a41cf7f9-b3b3-4f0a-a221-7f9bea52661e.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">JobBuddy</h3>
+  <h3 align="center">League of Legends Boards Archive</h3>
 
   <p align="center">
-    The job search productivity tool geared to push your potential to the max!
+    An archive of the League of Legends Boards, developed to preserve 6 years of user contributions
     <br />
     <a href="#"><strong>Explore the docs »</strong></a>
     <br />
@@ -42,9 +42,9 @@
 
 ## About the Project
 
-Managing hundreds or even thousands of job applications across several job search portals is cumbersome, but JobBuddy makes this process a breeze by allowing users to efficiently visualize and organize the listings they don't want to or still need to action on.
+In early 2020, Riot Games announced it would no longer maintain the Boards and that the platform would be sunset two weeks after the announcement. This led to a mad dash to scrape and download as much of the Boards data as possible, which ultimately led to a large number of .json files housing the data for millions of users, comments, and threads across several regional platforms.
 
-This product at its core is a Google Chrome extension connected with a Next.js API and PostgreSQL database, which allows for not only an organized view on the JobBuddy dashboard, but also right from each of the job boards that are supported.
+The League Boards Archive project aims to not only provide an interface for this raw data that allows for users to see the conversations between 2014 and 2020, but also to maintain an experience that is as true to form to the original League of Legends Boards.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -52,9 +52,7 @@ This product at its core is a Google Chrome extension connected with a Next.js A
 
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [React Native](https://reactnative.dev/)
-* [MUI (Material UI)](https://mui.com/)
-* [Manifest V3 for Chrome Extensions](https://developer.chrome.com/docs/extensions/mv3/intro/)
+* [Chakra UI](https://chakra-ui.com/)
 
 ### Supported & Planned Job Boards
 - [ ] Indeed.com
