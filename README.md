@@ -108,7 +108,7 @@ We use [Semantic Versioning](https://semver.org/) for versioning. For the versio
 
 Michael Chan - [WuksGG](https://github.com/WuksGG) - michael@struxlab.com
 
-Project Link: https://github.com/StruxLab/JobBuddy
+Project Link: https://github.com/WuksGG/League-Boards-Archive
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
