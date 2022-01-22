@@ -7,6 +7,7 @@
 </td>
 <td align="center">
 <br />
+
 <span><b>
   This project is currently being redeveloped. <br />
   Please refer to <a href="https://github.com/WuksGG/League-Boards-Archive/tree/main/boards-next-old">v0.0.1</a> for the most recent production release.
@@ -21,7 +22,7 @@
 <div align="center">
 
   <a href="https://archive.runeterra.net/">
-    <img src="https://user-images.githubusercontent.com/27760344/150649814-a41cf7f9-b3b3-4f0a-a221-7f9bea52661e.png" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/27760344/150653317-228e2254-102f-4443-ae2a-018952784742.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">League of Legends Boards Archive</h3>
@@ -53,6 +54,7 @@ The League Boards Archive project aims to not only provide an interface for this
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Chakra UI](https://chakra-ui.com/)
+* [Marked.js](https://marked.js.org/)
 
 ### Supported & Planned Job Boards
 - [ ] Indeed.com
@@ -115,5 +117,7 @@ Project Link: https://github.com/StruxLab/JobBuddy
 ## Acknowledgments
 
 * [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+* [Axios](https://www.npmjs.com/package/axios)
+* [React Timeago](https://www.npmjs.com/package/react-timeago), [timeago.js](https://timeago.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
