@@ -56,13 +56,9 @@ The League Boards Archive project aims to not only provide an interface for this
 * [Chakra UI](https://chakra-ui.com/)
 * [Marked.js](https://marked.js.org/)
 
-### Supported & Planned Job Boards
-- [ ] Indeed.com
-- [ ] LinkedIn.com
-- [ ] [Google for Jobs](https://www.google.com/search?q=Software+Engineer&ibp=htl;jobs)
-- [ ] Glassdoor.com
-- [ ] Monster.com
-- [ ] ZipRecruiter.com
+### Supported & Planned Region Support
+- [ ] Europe
+- [ ] North America
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -72,10 +68,12 @@ The League Boards Archive project aims to not only provide an interface for this
 
 * [Node.js v14+](https://nodejs.org/en/)
 * [PostgreSQL 11+](https://www.postgresql.org/)
+* [Redis v5.0+](https://redis.io/)
 
 ### Installation
 
-To start, compile and build out the Chrome extension's content scripts by running the following command from the project's root directory: ```npm run dev```.
+1. Enter the app directory `cd boards-app` and install dependencies `npm install`
+2. Run the app in development mode using `npm run dev`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -86,21 +84,21 @@ To start, compile and build out the Chrome extension's content scripts by runnin
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Build out Chrome Extension for LinkedIn
-- [ ] Establish SQL Schema
-- [ ] Build out API routes and models
-- [ ] Connect Chrome Extension with API
-- [ ] Build out Next.js web application
-- [ ] Build out React Native application
+- [ ] Build out the Homepage with a list of supported regions
+- [ ] Build out the Categories page with a list of categories for that region
+- [ ] Be able to render the list of discussions in that category with pagination
+- [ ] Properly render discussions with
+  - [ ] Discussion view (nested comments)
+  - [ ] Chronological view (no nest, in order) 
 
-See the [open issues](https://github.com/StruxLab/JobBuddy/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/WuksGG/League-Boards-Archive/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ## Contributing -->
 
 ## Versioning
-We use [Semantic Versioning](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/StruxLab/JobBuddy/tags).
+We use [Semantic Versioning](https://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/WuksGG/League-Boards-Archive/tags).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
