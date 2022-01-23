@@ -1,5 +1,16 @@
-export default function Header() {
+import { ReactElement } from 'react';
+import ContentContainer from '../../templates/ContentContainer';
+
+/**
+ *
+ * @returns
+ */
+function Header(): ReactElement {
   return (
-    <div>test</div>
+    <ContentContainer bg='#ae2e2e'>
+      <div>test</div>
+    </ContentContainer>
   );
 }
+
+export default Header;
