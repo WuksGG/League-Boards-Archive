@@ -1,5 +1,8 @@
 import { ReactElement } from 'react';
 import ContentContainer from '../../templates/ContentContainer';
+import Logo from '../../molecules/Logo';
+import { Flex, Text, HStack } from '@chakra-ui/react';
+import NavMenu from './NavMenu';
 
 /**
  *
@@ -8,7 +11,14 @@ import ContentContainer from '../../templates/ContentContainer';
 function Header(): ReactElement {
   return (
     <ContentContainer bg='#ae2e2e'>
-      <div>test</div>
+      <HStack w='100%' justify='space-between'>
+        <Flex>
+          <Logo />
+        </Flex>
+        <Flex>
+          <NavMenu />
+        </Flex>
+      </HStack>
     </ContentContainer>
   );
 }

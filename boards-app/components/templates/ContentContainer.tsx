@@ -14,7 +14,7 @@ type ContentContainerType = {
  * @param { ReactFragment } children - Children that should be padded inwards
  * @param bg - Background color of the element
  * according to max width and breakpoints
- * @returns A React Element
+ * @returns { ReactElement }
  */
 function ContentContainer({ children, bg, flex }: ContentContainerType): ReactElement {
   return (
@@ -26,7 +26,7 @@ function ContentContainer({ children, bg, flex }: ContentContainerType): ReactEl
       justify='center'
     >
       <Flex w={['500px', '1060px']}>
-          {children}
+        {children}
       </Flex>
     </Flex>
   );
