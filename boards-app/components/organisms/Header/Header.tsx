@@ -4,10 +4,6 @@ import Logo from '../../molecules/Logo';
 import { Flex, Text, HStack } from '@chakra-ui/react';
 import NavMenu from './NavMenu';
 
-/**
- *
- * @returns
- */
 function Header(): ReactElement {
   return (
     <ContentContainer bg='#ae2e2e'>
