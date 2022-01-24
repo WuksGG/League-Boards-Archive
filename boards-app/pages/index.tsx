@@ -1,51 +1,61 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Image from 'next/image';
+import NextLink from 'next/link';
 import {
   useColorMode,
   Flex,
-  HStack,
   Text,
 } from '@chakra-ui/react';
+import Breadcrumbs from '../components/organisms/Breadcrumbs';
 
 function Home() {
   const { colorMode } = useColorMode();
   return (
-    <Flex h='100px' gap='20px' w='100%'>
-      {/* <Flex> */}
-        <Flex
-          sx={{
-            flex: 1,
-            '&:hover': {
+    <Flex direction='column' w='100%'>
+      <Text as='h2' fontSize='3xl'>Select Your Region</Text>
+      {/* <Breadcrumbs pagePath={[
+        { path: 'a', name: 'a' },
+        { path: 'ab', name: 'ab' },
+      ]}/> */}
+      <Flex h='200px' gap='20px' w='100%'>
+        <NextLink href='/na'>
+          <Flex
+            sx={{
               flex: 2,
-            },
-            transition: 'flex 0.3s',
-          }}
-          bg='red'
-          align='center'
-          position='relative'
-        >
-          <Text px='20px'>North America</Text>
-          <Image src='/assets/images/worlds_na.jpeg' alt='Worlds NA' layout='fill' objectFit='contain' />
-        </Flex>
-        <Flex
-          sx={{
-            flex: 1,
-            '&:hover': {
+              '&:hover': {
+                flex: 3,
+              },
+              transition: 'flex 0.3s',
+            }}
+            align='center'
+            position='relative'
+            cursor='pointer'
+          >
+            <Text px='20px'>North America</Text>
+            <Image src='/assets/images/worlds_na.jpeg' alt='Worlds NA' layout='fill' objectFit='cover' />
+          </Flex>
+        </NextLink>
+        <NextLink href='/eu'>
+          <Flex
+            sx={{
               flex: 2,
-            },
-            transition: 'flex 0.3s',
-          }}
-          justify='flex-end'
-          bg='blue'
-          align='center'
-          position='relative'
-        >
-          <Text px='20px'>Europe</Text>
-          <Image src='/assets/images/worlds_eu.jpeg' alt='Worlds EU' layout='fill' objectFit='contain' />
-        </Flex>
-      {/* </Flex> */}
+              '&:hover': {
+                flex: 3,
+              },
+              transition: 'flex 0.3s',
+            }}
+            justify='flex-end'
+            align='center'
+            position='relative'
+            cursor='pointer'
+          >
+            <Text px='20px'>Europe</Text>
+            <Image src='/assets/images/worlds_eu.jpeg' alt='Worlds EU' layout='fill' objectFit='cover' />
+          </Flex>
+        </NextLink>
+      </Flex>
+      <Text>* Europe support only at the moment. Additional regional support coming soon.</Text>
     </Flex>
   );
 }
