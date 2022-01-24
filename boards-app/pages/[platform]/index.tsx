@@ -9,7 +9,6 @@ import { ReactElement } from 'react';
 import getCategories from '../../models/server/getCategories';
 
 export default function Categories({ categories, platform }): ReactElement {
-  console.log(categories);
   return (
     <Flex direction='column' w='100%'>
       <Text as='h1'>Categories</Text>
