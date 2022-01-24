@@ -11,7 +11,7 @@ function FooterMenu(): ReactElement {
         href='https://github.com/WuksGG/League-Boards-Archive'
         target='_blank'
       >
-          GitHub
+        GitHub
       </a>
       <Link href='/privacy'>Privacy Policy</Link>
     </HStack>

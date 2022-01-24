@@ -4,7 +4,12 @@ import NextLink from 'next/link';
 
 export default function Logo() {
   return (
-    <HStack py='5px'>
+    <HStack
+      py='5px'
+      sx={{
+        userSelect: 'none'
+      }}
+    >
       <NextLink href='/' passHref>
         <a>
           <HStack>
@@ -14,7 +19,7 @@ export default function Logo() {
               height={40}
               width={40}
             />
-            <Text>League Boards Archive</Text>
+            <Text fontWeight={700}>League Boards Archive</Text>
           </HStack>
         </a>
       </NextLink>
