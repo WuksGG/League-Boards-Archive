@@ -7,13 +7,13 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
-import Breadcrumbs from '../components/organisms/Breadcrumbs';
+// import Breadcrumbs from '../components/organisms/Breadcrumbs';
 
 function Home() {
   const { colorMode } = useColorMode();
   return (
     <Flex direction='column' w='100%'>
-      <Text as='h2' fontSize='3xl'>Select Your Region</Text>
+      <Text as='h1'>Select Your Region</Text>
       {/* <Breadcrumbs pagePath={[
         { path: 'a', name: 'a' },
         { path: 'ab', name: 'ab' },
@@ -32,7 +32,6 @@ function Home() {
             position='relative'
             cursor='pointer'
           >
-            <Text px='20px'>North America</Text>
             <Image src='/assets/images/worlds_na.jpeg' alt='Worlds NA' layout='fill' objectFit='cover' />
           </Flex>
         </NextLink>
@@ -50,7 +49,6 @@ function Home() {
             position='relative'
             cursor='pointer'
           >
-            <Text px='20px'>Europe</Text>
             <Image src='/assets/images/worlds_eu.jpeg' alt='Worlds EU' layout='fill' objectFit='cover' />
           </Flex>
         </NextLink>

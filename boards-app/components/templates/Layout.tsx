@@ -14,7 +14,7 @@ export default function Layout({ children }: Props): ReactElement {
       <Header />
       <ContentContainer bg='#252524' flex={1}>
         <Flex mt='20px' w='100%'>
-        {children}
+          {children}
         </Flex>
       </ContentContainer>
       <Footer />
