@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { HStack, Flex, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import type { ReactElement } from 'react';
 
-export default function Logo() {
+export default function Logo(): ReactElement {
   return (
     <HStack
       py='5px'

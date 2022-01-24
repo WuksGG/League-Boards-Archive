@@ -8,8 +8,14 @@ import {
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import TimeAgo from 'react-timeago';
+import type { ReactElement } from 'react';
+import type { Discussion } from '../../types/app';
 
-export default function DiscussionListItem({ data }) {
+type DiscussionListItemProps = {
+  data: Discussion,
+};
+
+export default function DiscussionListItem({ data }: DiscussionListItemProps): ReactElement {
   const router = useRouter();
   const { platform, shortName } = router.query;
   const createdAt = new Date(data.dates.createdAt);
@@ -32,7 +38,13 @@ export default function DiscussionListItem({ data }) {
             cursor='pointer'
           >{data.title}</Text>
         </NextLink>
-        <Text fontSize='13px' as='span'>by {data.user.name} ({data.user.realm}) in {data.application.name} <TimeAgo date={data.dates.createdAt} /></Text>
+        <Text
+          fontSize='13px'
+          as='span'
+        >
+          by {data.user.name} ({data.user.realm}) in {data.application.name}&nbsp;
+          <TimeAgo date={data.dates.createdAt} />
+        </Text>
       </Flex>
       <Flex
         direction='column'

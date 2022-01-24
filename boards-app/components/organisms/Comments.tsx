@@ -1,13 +1,15 @@
 import {
-  Flex,
   VStack,
 } from '@chakra-ui/react';
-import { marked } from 'marked';
 import Comment from '../organisms/Comment';
+import type { Comments as CommentsType } from '../../types/app';
+import type { ReactElement } from 'react';
 
-export default function Comments({ comments }) {
-  console.log(comments);
-  // const markdown = marked.parse(discussion.content.body);
+type CommentsProps = {
+  comments: CommentsType,
+};
+
+export default function Comments({ comments }: CommentsProps): ReactElement {
   return (
     <VStack>
       {comments.map((comment) => {

@@ -8,8 +8,14 @@ import { ReactElement } from 'react';
 import { marked } from 'marked';
 import NextLink from 'next/link';
 import TimeAgo from 'react-timeago';
+import type { Platform, Discussion } from '../../types/app';
 
-export default function DiscussionContainer({ discussion, platform }): ReactElement {
+type DiscussionContainerProps = {
+  discussion: Discussion,
+  platform: Platform,
+};
+
+export default function DiscussionContainer({ discussion, platform }: DiscussionContainerProps): ReactElement {
   const markdown = marked.parse(discussion.content.body);
   return (
     <Flex

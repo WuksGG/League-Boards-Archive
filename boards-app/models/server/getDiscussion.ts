@@ -1,6 +1,9 @@
 import { pg } from '../../utils/server/database';
+import type { Discussion } from '../../types/app';
 
-export default async function getDiscussion(appShortName, discussionId) {
+type Result = ((any) | (null | Discussion))[];
+
+export default async function getDiscussion(appShortName: string, discussionId: string): Promise<Result> {
   console.log(appShortName, discussionId);
   const client = await pg.connect();
   try {
