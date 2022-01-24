@@ -9,11 +9,14 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import TimeAgo from 'react-timeago';
 import { useRouter } from 'next/router';
+import { marked } from 'marked';
+import { lolAssets } from "../../../../models/markdown";
 
 export default function Discussion({ discussion }) {
   const router = useRouter();
   const { platform } = router.query;
-
+  marked.use({ extensions: [lolAssets] });
+  const markdown = marked.parse(discussion.content.body);
   return (
     <Flex direction='column' w='100%'>
       <Text as='h1'>{discussion.application.name}</Text>
@@ -33,9 +36,10 @@ export default function Discussion({ discussion }) {
               {discussion.user.name} ({discussion.user.realm}) submitted <TimeAgo date={discussion.dates.createdAt} /> in <NextLink href={`/${platform}/c/${discussion.application.shortName}`}>{discussion.application.name}</NextLink>
               </Text>
           </Flex>
-          {/* // GeForce RTX 2070's user icon
-          GeForce RTX 2070 (EUW)  submitted 2 years ago in Champions & Gameplay */}
           <Divider />
+          <Flex>
+            <div dangerouslySetInnerHTML={{__html: markdown}}/>
+          </Flex>
       </Flex>
     </Flex>
   );
