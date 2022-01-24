@@ -13,7 +13,7 @@ export default function Layout({ children }: Props): ReactElement {
     <Flex direction='column' justify='space-between' w='100vw'>
       <Header />
       <ContentContainer bg='#252524' flex={1}>
-        <Flex mt='20px' w='100%' mb='20px'>
+        <Flex mt='20px' w='100%' mb='40px'>
           {children}
         </Flex>
       </ContentContainer>
