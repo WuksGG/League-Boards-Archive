@@ -2,33 +2,25 @@ import {
   Text,
   Flex,
   Grid,
-  GridItem,
 } from '@chakra-ui/react';
-import NextLink from 'next/link';
 import { ReactElement } from 'react';
 import getCategories from '../../models/server/getCategories';
+import CategoryTile from '../../components/organisms/CategoryTile';
+import { Categories as CategoriesType, Platform } from '../../types/app';
 
-export default function Categories({ categories, platform }): ReactElement {
+type CategoriesProps = {
+  categories: CategoriesType,
+  platform: Platform,
+};
+
+export default function Categories({ categories, platform }: CategoriesProps): ReactElement {
   return (
     <Flex direction='column' w='100%'>
       <Text as='h1'>Categories</Text>
       <Grid templateColumns='repeat(4, 1fr)' gap={4}>
         {categories.map((category) => {
           return (
-            <NextLink
-              href={`/${platform}/c/${category.shortname}`}
-              key={category.id}
-            >
-              <GridItem
-                w='100%'
-                colSpan={1}
-                bg='dark.500'
-                cursor='pointer'
-                align='center'
-              >
-                <Text fontWeight='600'>{category.name}</Text>
-              </GridItem>
-            </NextLink>
+            <CategoryTile key={category.id} platform={platform} category={category} />
           );
         })}
       </Grid>
