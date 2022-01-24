@@ -18,7 +18,7 @@ function Home() {
         { path: 'a', name: 'a' },
         { path: 'ab', name: 'ab' },
       ]}/> */}
-      <Flex h='200px' gap='20px' w='100%'>
+      <Flex h='200px' gap='20px' w='100%' userSelect='none'>
         <NextLink href='/na'>
           <Flex
             sx={{
