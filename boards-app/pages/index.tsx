@@ -14,11 +14,36 @@ function Home() {
   return (
     <Flex h='100px' gap='20px' w='100%'>
       {/* <Flex> */}
-        <Flex sx={{ flex: 1 }} bg='red' align='center'>
+        <Flex
+          sx={{
+            flex: 1,
+            '&:hover': {
+              flex: 2,
+            },
+            transition: 'flex 0.3s',
+          }}
+          bg='red'
+          align='center'
+          position='relative'
+        >
           <Text px='20px'>North America</Text>
+          <Image src='/assets/images/worlds_na.jpeg' alt='Worlds NA' layout='fill' objectFit='contain' />
         </Flex>
-        <Flex sx={{ flex: 1 }} justify='flex-end' bg='blue' align='center'>
+        <Flex
+          sx={{
+            flex: 1,
+            '&:hover': {
+              flex: 2,
+            },
+            transition: 'flex 0.3s',
+          }}
+          justify='flex-end'
+          bg='blue'
+          align='center'
+          position='relative'
+        >
           <Text px='20px'>Europe</Text>
+          <Image src='/assets/images/worlds_eu.jpeg' alt='Worlds EU' layout='fill' objectFit='contain' />
         </Flex>
       {/* </Flex> */}
     </Flex>
