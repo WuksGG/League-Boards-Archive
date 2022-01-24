@@ -13,7 +13,7 @@ export default function Categories({ categories, platform }): ReactElement {
   return (
     <Flex direction='column' w='100%'>
       <Text as='h1'>Categories</Text>
-      <Grid templateColumns='repeat(4, 1fr)' gap={5}>
+      <Grid templateColumns='repeat(4, 1fr)' gap={4}>
         {categories.map((category) => {
           return (
             <NextLink
@@ -27,7 +27,7 @@ export default function Categories({ categories, platform }): ReactElement {
                 cursor='pointer'
                 align='center'
               >
-                <Text>{category.name}</Text>
+                <Text fontWeight='600'>{category.name}</Text>
               </GridItem>
             </NextLink>
           );
