@@ -11,36 +11,21 @@ import TimeAgo from 'react-timeago';
 import { useRouter } from 'next/router';
 import { marked } from 'marked';
 import { lolAssets } from "../../../../models/markdown";
+import DiscussionContainer from '../../../../components/organisms/Discussion';
+import { CommentsDisabled } from "@mui/icons-material";
+import Comments from '../../../../components/organisms/Comments';
+import getComments from '../../../../models/server/getComments';
 
-export default function Discussion({ discussion }) {
+export default function Discussion({ discussion, comments }) {
   const router = useRouter();
   const { platform } = router.query;
   marked.use({ extensions: [lolAssets] });
-  const markdown = marked.parse(discussion.content.body);
+
   return (
-    <Flex direction='column' w='100%'>
+    <Flex direction='column' w='100%' gap='15px'>
       <Text as='h1'>{discussion.application.name}</Text>
-        <Flex
-          bg='#303030'
-          w='100%'
-          border='1px solid #545454'
-          p='40px'
-          direction='column'
-        >
-          <Text as='h2' mb='5px'>{discussion.title}</Text>
-          <Flex align='center' gap='8px'>
-            <Flex position='relative' h='25px' w='25px'>
-              <Image alt='Profile Icon' src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/profileicon/${discussion.user.profileIcon}.png`} layout='fill' objectFit='contain' />
-            </Flex>
-            <Text fontSize='13px' as='span'>
-              {discussion.user.name} ({discussion.user.realm}) submitted <TimeAgo date={discussion.dates.createdAt} /> in <NextLink href={`/${platform}/c/${discussion.application.shortName}`}>{discussion.application.name}</NextLink>
-              </Text>
-          </Flex>
-          <Divider />
-          <Flex>
-            <div dangerouslySetInnerHTML={{__html: markdown}}/>
-          </Flex>
-      </Flex>
+      <DiscussionContainer discussion={discussion} platform={platform} />
+      <Comments comments={comments} />
     </Flex>
   );
 }
@@ -48,11 +33,12 @@ export default function Discussion({ discussion }) {
 export async function getServerSideProps(context) {
   const shortName = context.params.shortName;
   const discussionId = context.params.discussionId;
-  const [err, result] = await getDiscussion(shortName, discussionId);
-  console.log(result);
+  const [err, discussion] = await getDiscussion(shortName, discussionId);
+  const [err2, comments] =  await getComments(discussionId);
   return {
     props: {
-      discussion: result,
+      discussion,
+      comments,
     }
   };
 }

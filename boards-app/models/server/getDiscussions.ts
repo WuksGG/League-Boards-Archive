@@ -38,7 +38,7 @@ export default async function getDiscussions(appId) {
       FROM threads t, cat
       WHERE cat.id = t.applicationid
       ORDER BY t.createdat DESC
-      LIMIT 5;
+      LIMIT 15;
     `, [appId]);
     return [null, result.rows];
   } catch(e) {
