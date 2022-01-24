@@ -1,7 +1,10 @@
 import { pg } from '../../utils/server/database';
+import type { Comments } from '../../types/app';
 
-export default async function getComments(discussionId) {
-  console.log(discussionId);
+
+type Result = ((any) | (null | Comments))[];
+
+export default async function getComments(discussionId: string): Promise<Result> {
   const client = await pg.connect();
   try {
     const result = await client.query(`
@@ -28,7 +31,6 @@ export default async function getComments(discussionId) {
       WHERE threadid = $1
       ORDER BY createdat ASC;
     `, [discussionId]);
-    console.log(result);
     return [null, result.rows];
   } catch(e) {
     return [e, null];

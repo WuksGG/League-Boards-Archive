@@ -1,8 +1,9 @@
 import ContentContainer from '../../templates/ContentContainer';
 import { Text, VStack, Divider } from '@chakra-ui/react';
 import FooterMenu from './FooterMenu';
+import type { ReactElement } from 'react';
 
-export default function Footer() {
+export default function Footer(): ReactElement {
   return (
     <ContentContainer bg='#ae2e2e'>
       <VStack direction='column' p='20px 0'>

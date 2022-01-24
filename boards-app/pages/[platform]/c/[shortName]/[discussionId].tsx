@@ -2,23 +2,24 @@ import getDiscussion from "../../../../models/server/getDiscussion";
 import {
   Flex,
   Text,
-  Divider,
-  Box,
 } from '@chakra-ui/react';
-import Image from 'next/image';
-import NextLink from 'next/link';
-import TimeAgo from 'react-timeago';
 import { useRouter } from 'next/router';
 import { marked } from 'marked';
 import { lolAssets } from "../../../../models/markdown";
 import DiscussionContainer from '../../../../components/organisms/Discussion';
-import { CommentsDisabled } from "@mui/icons-material";
 import Comments from '../../../../components/organisms/Comments';
 import getComments from '../../../../models/server/getComments';
+import { ReactElement } from 'react';
+import { Discussion as DiscussionType, Comments as CommentsType } from '../../../../types/app';
 
-export default function Discussion({ discussion, comments }) {
+type DiscussionProps = {
+  discussion: DiscussionType,
+  comments: CommentsType,
+};
+
+export default function Discussion({ discussion, comments }: DiscussionProps): ReactElement {
   const router = useRouter();
-  const { platform } = router.query;
+  const platform = router.query.platform;
   marked.use({ extensions: [lolAssets] });
 
   return (
@@ -30,11 +31,18 @@ export default function Discussion({ discussion, comments }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const shortName = context.params.shortName;
-  const discussionId = context.params.discussionId;
+type GetServerSidePropsContext = {
+  params: {
+    shortName: string,
+    discussionId: string,
+  }
+};
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const shortName = context.params?.shortName;
+  const discussionId = context.params?.discussionId;
   const [err, discussion] = await getDiscussion(shortName, discussionId);
   const [err2, comments] =  await getComments(discussionId);
+  console.log(comments);
   return {
     props: {
       discussion,

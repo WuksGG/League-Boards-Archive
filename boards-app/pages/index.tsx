@@ -3,14 +3,13 @@ import Head from 'next/head'
 import Image from 'next/image';
 import NextLink from 'next/link';
 import {
-  useColorMode,
   Flex,
   Text,
 } from '@chakra-ui/react';
+import type { ReactElement } from 'react';
 // import Breadcrumbs from '../components/organisms/Breadcrumbs';
 
-function Home() {
-  const { colorMode } = useColorMode();
+function Home(): ReactElement {
   return (
     <Flex direction='column' w='100%'>
       <Text as='h1'>Select Your Region</Text>

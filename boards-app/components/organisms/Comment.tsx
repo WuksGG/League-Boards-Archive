@@ -5,8 +5,14 @@ import {
 import { marked } from 'marked';
 import TimeAgo from 'react-timeago';
 import Image from 'next/image';
+import { ReactElement } from 'react';
+import type { Comment as CommentType }  from '../../types/app';
 
-export default function Comment({ comment }) {
+type CommentProps = {
+  comment: CommentType,
+}
+
+export default function Comment({ comment }: CommentProps): ReactElement {
   const markdown = marked.parse(comment.message);
   return (
     <Flex
@@ -24,5 +30,5 @@ export default function Comment({ comment }) {
       </Flex>
       <div dangerouslySetInnerHTML={{__html: markdown}}/>
     </Flex>
-  )
+  );
 }

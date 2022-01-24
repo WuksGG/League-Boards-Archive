@@ -1,7 +1,9 @@
 import { pg } from '../../utils/server/database';
-import type { Platform } from '../../types/app';
+import type { Platform, Categories } from '../../types/app';
 
-export default async function getCategories(platform: Platform) {
+type Result = ((any) | (null | Categories))[];
+
+export default async function getCategories(platform: Platform): Promise<Result> {
   const client = await pg.connect();
   try {
     const result = await pg.query(`
