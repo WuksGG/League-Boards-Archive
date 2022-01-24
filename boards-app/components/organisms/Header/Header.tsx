@@ -11,7 +11,7 @@ import NavMenu from './NavMenu';
 function Header(): ReactElement {
   return (
     <ContentContainer bg='#ae2e2e'>
-      <HStack w='100%' justify='space-between'>
+      <HStack w='100%' justify='space-between' >
         <Flex>
           <Logo />
         </Flex>

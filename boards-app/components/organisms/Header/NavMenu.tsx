@@ -7,8 +7,8 @@ import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 
 export default function NavMenu(): ReactElement {
-  const router = useRouter();
-  console.log(router);
+  // const router = useRouter();
+  // console.log(router);
   return (
     <HStack spacing={8}>
       <Link href='/categories'>Categories</Link>

@@ -20,7 +20,7 @@ const config = {
       'body': {
         bg: mode('light.900', 'dark.900')(props),
         color: '#fff',
-        fontFamily: 'Proxima Nova',
+        fontFamily: 'Proxima Nova W02',
       },
     }),
   },

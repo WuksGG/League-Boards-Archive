@@ -23,7 +23,7 @@ function ContentContainer({ children, bg, flex }: ContentContainerType): ReactEl
       sx={{ flex: flex }}
       justify='center'
     >
-      <Flex w={['500px', '1060px']}>
+      <Flex ml='calc(100vw - 100%)' w={['500px', '1060px']}>
         {children}
       </Flex>
     </Flex>
