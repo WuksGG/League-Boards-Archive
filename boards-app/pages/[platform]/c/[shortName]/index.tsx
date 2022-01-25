@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 type CategoryProps = {
   discussions: Discussions,
   application: Application,
-}
+};
 
 export default function Category({ discussions, application }: CategoryProps): ReactElement {
   const router = useRouter();
@@ -40,12 +40,19 @@ type GetServerSidePropsContext = {
     shortName: string,
   }
 };
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+type GetServerSideProps = {
+  props: {
+    pageTitle: string,
+  } & CategoryProps,
+};
+export async function getServerSideProps(context: GetServerSidePropsContext): Promise<GetServerSideProps> {
   const [err, discussions] = await getDiscussions(context.params?.shortName);
+  const application = discussions[0].application;
   return {
     props: {
+      pageTitle: application.name,
       discussions,
-      application: discussions[0].application,
-    }
-  }
+      application,
+    },
+  };
 }
