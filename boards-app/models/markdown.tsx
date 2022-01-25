@@ -1,8 +1,8 @@
 export const lolAssets = {
   name: 'lolAssets',
   level: 'inline',
-  start(src) { return src.match(/{{/)?.index; },
-  tokenizer(src, tokens) {
+  start(src: string) { return src.match(/{{/)?.index; },
+  tokenizer(src: string, /*tokens*/) {
     const rule = /^{{(sticker|champion|summoner|item):[a-z0-9\-]{1,25}}}/;
     const match = rule.exec(src);
     if (match) {
@@ -13,7 +13,7 @@ export const lolAssets = {
       return token;
     }
   },
-  renderer(token) {
+  renderer(token: { raw: string }) {
     const [delimType, parseKey] = token.raw.slice(2, -2).split(':');
     const stickers = {
       'slayer-jinx-catface': 'slayer140/',
@@ -240,7 +240,7 @@ export const lolAssets = {
     // Stickers List: https://www.reddit.com/r/leagueoflegends/comments/fc9ra0/all_the_stickers_from_the_league_forums_in_one/
     // Thanks to u/DarkAndromeda31
     // https://drive.google.com/drive/folders/1uwcG2HwBKMzx2hE809b_tbbrn6pw704u
-
+    // typescripting necessary
     const handlers = {
       sticker(key) {
         const baseUrl = 'https://lolstatic-a.akamaihd.net/stickers/';
