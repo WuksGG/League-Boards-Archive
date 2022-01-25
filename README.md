@@ -1,22 +1,3 @@
-<div id="top"></div>
-
-<table>
-<tr>
-<td>
-⚠️
-</td>
-<td align="center">
-<br />
-
-<span><b>
-  This project is currently being redeveloped. <br />
-  Please refer to <a href="https://github.com/WuksGG/League-Boards-Archive/tree/main/boards-next-old">v0.0.1</a> for the most recent production release.
-</b></span>
-<img width="881" height="0">
-</td>
-</tr>
-</table>
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
