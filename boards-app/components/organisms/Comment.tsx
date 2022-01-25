@@ -18,7 +18,7 @@ export default function Comment({ comment }: CommentProps): ReactElement {
     <Flex
       bg='#5c5c5c'
       w='100%'
-      p='40px'
+      p='20px 40px'
       direction='column'
       border='1px solid #838383'
     >
