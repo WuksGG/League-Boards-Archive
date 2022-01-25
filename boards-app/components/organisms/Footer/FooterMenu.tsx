@@ -7,7 +7,6 @@ function FooterMenu(): ReactElement {
     <HStack spacing={12}>
       <NextLink href='/terms'>Terms of Use</NextLink>
       <Link
-        rel='noreferrer'
         href='https://github.com/WuksGG/League-Boards-Archive'
         isExternal
       >GitHub</Link>

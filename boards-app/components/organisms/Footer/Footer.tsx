@@ -5,10 +5,10 @@ import type { ReactElement } from 'react';
 
 export default function Footer(): ReactElement {
   return (
-    <ContentContainer bg='#ae2e2e'>
-      <VStack direction='column' p='20px 0'>
+    <ContentContainer bg='#121212'>
+      <VStack color='#e5e5e5' direction='column' p='20px 0'>
         <FooterMenu />
-        <Text align='center'>Copyright &copy; 2022 Michael Chan, Runeterra.net. League of Legends is a registered trademark and copyright of Riot Games, Inc. This project is not affiliated with Riot Games in any way.</Text>
+        <Text align='center' color='#acacac'>Copyright &copy; 2022 Michael Chan, Runeterra.net. League of Legends is a registered trademark and copyright of Riot Games, Inc. This project is not affiliated with Riot Games in any way.</Text>
       </VStack>
     </ContentContainer>
   );
