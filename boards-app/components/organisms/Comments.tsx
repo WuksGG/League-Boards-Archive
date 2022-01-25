@@ -11,7 +11,7 @@ type CommentsProps = {
 
 export default function Comments({ comments }: CommentsProps): ReactElement {
   return (
-    <VStack>
+    <VStack w='100%'>
       {comments.map((comment) => {
         return (
           <Comment key={comment.id} comment={comment}/>
