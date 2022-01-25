@@ -16,11 +16,11 @@ export default function Comment({ comment }: CommentProps): ReactElement {
   const markdown = marked.parse(comment.message);
   return (
     <Flex
-      bg='#5c5c5c'
+      bg='#383838'
       w='100%'
-      p='40px'
+      p='20px 40px'
       direction='column'
-      border='1px solid #838383'
+      border='1px solid #464646'
     >
       <Flex gap='6px'>
         <Flex position='relative' h='25px' w='25px'>

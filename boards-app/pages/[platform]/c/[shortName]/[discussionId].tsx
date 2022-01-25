@@ -58,6 +58,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const [err2, comments] =  await getComments(discussionId);
   return {
     props: {
+      pageTitle: discussion.title,
       discussion,
       comments,
     }
