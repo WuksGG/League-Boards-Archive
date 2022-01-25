@@ -14,7 +14,14 @@ type Props = {
 };
 export default function Breadcrumbs({ pagePath }: Props): ReactElement {
   return (
-    <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+    <Breadcrumb
+      fontSize='13px'
+      border='1px solid #3e3e3e'
+      borderRadius='4px'
+      bg='#303030'
+      spacing='8px'
+      separator={<ChevronRightIcon color='gray.300' />}
+    >
       {pagePath.map(({path, name}) => {
         return (
           <BreadcrumbItem key={path}>

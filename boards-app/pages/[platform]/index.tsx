@@ -38,7 +38,12 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+type GetStaticPropsContext = {
+  params: {
+    platform: Platform,
+  },
+};
+export async function getStaticProps(context: GetStaticPropsContext) {
   const platform = context.params.platform;
   const [err, categories] = await getCategories(platform);
   return {
