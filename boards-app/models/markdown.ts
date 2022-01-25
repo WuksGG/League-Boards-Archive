@@ -241,20 +241,25 @@ export const lolAssets = {
     // Thanks to u/DarkAndromeda31
     // https://drive.google.com/drive/folders/1uwcG2HwBKMzx2hE809b_tbbrn6pw704u
     // typescripting necessary
+    type StickerKey = keyof typeof stickers;
+    type ChampionKey = keyof typeof champions;
+    type SummonerKey = keyof typeof summonerSpells;
+    type ItemKey = string;
     const handlers = {
-      sticker(key) {
+      sticker(key: StickerKey) {
         const baseUrl = 'https://lolstatic-a.akamaihd.net/stickers/';
         return stickers[key] ? `<span class="sticker" style="background-image: url(${baseUrl + stickers[key] + key}.png)"></span>` : null;
       },
-      champion(key) {
+      champion(key: ChampionKey) {
         const baseUrl = 'https://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/';
         return champions[key] ? `<span style="display: inline-block; background-size: cover; height: 36px; width: 36px; background-image: url(${baseUrl + champions[key]}.png)"></span>` : null;
       },
-      summoner(key) {
+      summoner(key: SummonerKey) {
         const baseUrl = 'https://ddragon.leagueoflegends.com/cdn/11.24.1/img/spell/';
-        return summonerSpells[key] ? `<span style="display: inline-block; background-size: cover; height: 36px; width: 36px; background-image: url(${baseUrl + summonerSpells[key]}.png)"></span>` : null;
+        const value = summonerSpells[key];
+        return value ? `<span style="display: inline-block; background-size: cover; height: 36px; width: 36px; background-image: url(${baseUrl + value}.png)"></span>` : null;
       },
-      item(key) {
+      item(key: ItemKey) {
         const baseUrl = 'http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/';
         return items.includes(key) ? `<span style="display: inline-block; background-size: cover; height: 36px; width: 36px; background-image: url(${baseUrl + key}.png)"></span>` : null;
       },
