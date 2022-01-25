@@ -4,7 +4,6 @@ import type { Discussion } from '../../types/app';
 type Result = ((any) | (null | Discussion))[];
 
 export default async function getDiscussion(appShortName: string, discussionId: string): Promise<Result> {
-  console.log(appShortName, discussionId);
   const client = await pg.connect();
   try {
     const result = await client.query(`

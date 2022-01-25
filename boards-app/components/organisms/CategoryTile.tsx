@@ -13,7 +13,6 @@ type CategoryTileProps = {
 };
 
 export default function CategoryTile({ platform, category }: CategoryTileProps): ReactElement {
-  console.log(category);
   return (
     <NextLink
       href={`/${platform}/c/${category.shortname}`}
