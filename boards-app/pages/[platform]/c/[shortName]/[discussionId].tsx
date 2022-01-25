@@ -11,6 +11,7 @@ import Comments from '../../../../components/organisms/Comments';
 import getComments from '../../../../models/server/getComments';
 import { ReactElement } from 'react';
 import { Discussion as DiscussionType, Comments as CommentsType } from '../../../../types/app';
+import Breadcrumbs from '../../../../components/organisms/Breadcrumbs';
 
 type DiscussionProps = {
   discussion: DiscussionType,
@@ -21,9 +22,15 @@ export default function Discussion({ discussion, comments }: DiscussionProps): R
   const router = useRouter();
   const platform = router.query.platform;
   marked.use({ extensions: [lolAssets] });
-
+  console.log(discussion);
   return (
-    <Flex direction='column' w='100%' gap='15px'>
+    <Flex direction='column' w='100%'>
+      <Breadcrumbs pagePath={[
+        { path: '/', name: 'Home' },
+        { path: `/${platform}`, name: 'EU Boards' },
+        { path: `/${platform}/c/${discussion.application.shortName}`, name: discussion.application.name },
+        { path: `/${platform}/c/${discussion.application.shortName}/${discussion.id}`, name: discussion.title },
+      ]}/>
       <Text as='h1'>{discussion.application.name}</Text>
       <DiscussionContainer discussion={discussion} platform={platform} />
       <Comments comments={comments} />

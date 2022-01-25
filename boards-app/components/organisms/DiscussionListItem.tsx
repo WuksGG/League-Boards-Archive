@@ -36,14 +36,15 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
             fontWeight='bold'
             as='span'
             cursor='pointer'
-            color='#ff8888'
+            color='#e8e8e8'
           >
             {data.title}
           </Text>
         </NextLink>
         <Text
-          fontSize='13px'
+          fontSize='12px'
           as='span'
+          color='#dedede'
         >
           by <NextLink href='/'><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
           <NextLink href='/' passHref>

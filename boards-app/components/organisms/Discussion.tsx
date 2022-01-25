@@ -22,7 +22,7 @@ export default function DiscussionContainer({ discussion, platform }: Discussion
     <Flex
       bg='#303030'
       w='100%'
-      border='1px solid #545454'
+      border='1px solid #3e3e3e'
       p='40px'
       direction='column'
     >
