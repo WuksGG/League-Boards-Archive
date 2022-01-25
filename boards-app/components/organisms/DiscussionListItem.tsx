@@ -20,7 +20,7 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
   const { platform, shortName } = router.query;
   const createdAt = new Date(data.dates.createdAt);
   return (
-    <HStack w='100%' bg='#474747'>
+    <HStack w='100%' bg='#363636'>
       <Flex
         direction='column'
         align='center'
@@ -36,13 +36,19 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
             fontWeight='bold'
             as='span'
             cursor='pointer'
-          >{data.title}</Text>
+            color='#ff8888'
+          >
+            {data.title}
+          </Text>
         </NextLink>
         <Text
           fontSize='13px'
           as='span'
         >
-          by {data.user.name} ({data.user.realm}) in {data.application.name}&nbsp;
+          by <NextLink href='/'><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
+          <NextLink href='/' passHref>
+            <Link color='#fff0b7'>{data.application.name}</Link>
+          </NextLink>&nbsp;
           <TimeAgo date={data.dates.createdAt} />
         </Text>
       </Flex>
