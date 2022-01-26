@@ -7,16 +7,11 @@ import {
   Text,
 } from '@chakra-ui/react';
 import type { ReactElement } from 'react';
-// import Breadcrumbs from '../components/organisms/Breadcrumbs';
 
 function Home(): ReactElement {
   return (
     <Flex direction='column' w='100%'>
       <Text as='h1'>Select Your Region</Text>
-      {/* <Breadcrumbs pagePath={[
-        { path: 'a', name: 'a' },
-        { path: 'ab', name: 'ab' },
-      ]}/> */}
       <Flex h='200px' gap='20px' w='100%' userSelect='none'>
         <NextLink href='/na'>
           <Flex
