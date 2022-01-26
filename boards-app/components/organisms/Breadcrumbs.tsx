@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { ReactElement } from 'react';
+import NextLink from 'next/link';
 
 type Props = {
   pagePath: {
@@ -25,7 +26,7 @@ export default function Breadcrumbs({ pagePath }: Props): ReactElement {
       {pagePath.map(({path, name}) => {
         return (
           <BreadcrumbItem key={path}>
-            <BreadcrumbLink href={path}>{name}</BreadcrumbLink>
+            <NextLink href={path}><BreadcrumbLink>{name}</BreadcrumbLink></NextLink>
           </BreadcrumbItem>
         );
       })}
