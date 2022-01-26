@@ -26,7 +26,9 @@ export default function Breadcrumbs({ pagePath }: Props): ReactElement {
       {pagePath.map(({path, name}) => {
         return (
           <BreadcrumbItem key={path}>
-            <NextLink href={path}><BreadcrumbLink>{name}</BreadcrumbLink></NextLink>
+            <NextLink href={path} passHref>
+              <BreadcrumbLink>{name}</BreadcrumbLink>
+            </NextLink>
           </BreadcrumbItem>
         );
       })}
