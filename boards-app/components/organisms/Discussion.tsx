@@ -17,6 +17,7 @@ type DiscussionContainerProps = {
 };
 
 export default function DiscussionContainer({ discussion, platform }: DiscussionContainerProps): ReactElement {
+  marked.setOptions({ breaks: true })
   const markdown = marked.parse(discussion.content.body);
   return (
     <Flex
