@@ -47,7 +47,7 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
           as='span'
           color='#dedede'
         >
-          by <NextLink href='/'><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
+          by <NextLink href='/' passHref><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
           <NextLink href='/' passHref>
             <Link color='#fff0b7'>{data.application.name}</Link>
           </NextLink>&nbsp;
