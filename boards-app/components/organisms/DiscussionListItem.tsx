@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import TimeAgo from 'react-timeago';
 import type { ReactElement } from 'react';
 import type { Discussion } from '../../types/app';
+import roundNumber from '../../utils/roundNumber';
 
 type DiscussionListItemProps = {
   data: Discussion,
@@ -27,7 +28,7 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
         sx={{ flex: '1 0 50px' }}
         p='5px'
       >
-        <Text as='span'>{data.upvotes}</Text>
+        <Text as='span'>{roundNumber(data.upvotes - data.downvotes)}</Text>
         <Text as='span' fontSize='11px'>votes</Text>
       </Flex>
       <Flex sx={{ flex: '1 1 100%' }} direction='column' py='5px'>
@@ -46,7 +47,7 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
           as='span'
           color='#dedede'
         >
-          by <NextLink href='/'><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
+          by <NextLink href='/' passHref><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
           <NextLink href='/' passHref>
             <Link color='#fff0b7'>{data.application.name}</Link>
           </NextLink>&nbsp;
@@ -59,17 +60,17 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
         sx={{ flex: '1 0 50px' }}
         p='5px'
       >
-        <Text as='span'>{data.viewcount}</Text>
-        <Text as='span' fontSize='11px'>views</Text>
+        <Text as='span'>{roundNumber(data.softcomments)}</Text>
+        <Text as='span' fontSize='11px'>Comments</Text>
       </Flex>
       <Flex
         direction='column'
         align='center'
-        sx={{ flex: '1 0 50px' }}
+        sx={{ flex: '1 0 60px' }}
         p='5px'
       >
-        <Text as='span'>{data.softcomments}</Text>
-        <Text as='span' fontSize='11px'>comments</Text>
+        <Text as='span'>{roundNumber(data.viewcount)}</Text>
+        <Text as='span' fontSize='11px'>Views</Text>
       </Flex>
     </HStack>
   );
