@@ -1,4 +1,4 @@
-import type { ReactFragment } from 'react';
+import type { ReactElement } from 'react';
 import NextLink from 'next/link';
 import {
   Flex,
@@ -11,7 +11,7 @@ import {
   ListItem,
 } from '@chakra-ui/react';
 
-function Privacy(): ReactFragment {
+function Privacy(): ReactElement {
   return (
     <Flex direction='column'>
       <Text as='h2'>Privacy Policy</Text>
@@ -21,7 +21,7 @@ function Privacy(): ReactFragment {
         }
       }}>
         <Text as='span'><Text as='b'>Last updated: January 30, 2022</Text></Text>
-        <Text>Thank you for choosing to use our application at Runeterra.net (<Text as='strong'>&quot;Company&quot;</Text>, <Text as='strong'>&quot;we&quot;</Text>, <Text as='strong'>&quot;us&quot;</Text>, or <Text as='strong'>&quot;our&quot;</Text>). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, our our practices with regards to your personal information, please contact us at <Link href="mailto:inquiries@runeterra.net" target="_blank">inquiries@struxlab.com</Link>.</Text>
+        <Text>Thank you for choosing to use our application at Runeterra.net (<Text as='strong'>&quot;Company&quot;</Text>, <Text as='strong'>&quot;we&quot;</Text>, <Text as='strong'>&quot;us&quot;</Text>, or <Text as='strong'>&quot;our&quot;</Text>). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, our our practices with regards to your personal information, please contact us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@struxlab.com</Link>.</Text>
         <Text>When you visit our Website, <NextLink href="/">https://archive.runeterra.net</NextLink>, and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy policy, we seek to explain to you in the clearest way possible what information we collect, how we use it, and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our sites and services.</Text>
         <Text>This privacy policy applies to all information collected through use of this website, and/or any related services, sales, marketing, or events (we refer to them collectively in this privacy policy as the <Text as='strong'>&quot;Services&quot;</Text>).</Text>
         <Text><Text as='strong'>Please read this privacy policy carefully as it will help you make informed decisions about sharing your personal information with us.</Text></Text>
@@ -114,14 +114,14 @@ function Privacy(): ReactFragment {
 
         <Text as='h3' id="anchor_8">8. Do we collect information from minors?</Text>
         <Text><Text as='i'><Text as='b'>In Short:</Text> We do not knowingly collect data from or market to children under 18 years of age.</Text></Text>
-        <Text>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such a minor dependent&rsquo;s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <Link href="mailto:inquiries@runeterra.net" target="_blank">inquiries@runeterra.net</Link>.</Text>
+        <Text>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such a minor dependent&rsquo;s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@struxlab.com</Link>.</Text>
 
-        <Text as='h3' id="anchor_9" >9. What are your privacy rights?</Text>
+        <Text as='h3' id="anchor_9">9. What are your privacy rights?</Text>
         <Text><Text as='i'><Text as='b'>In Short:</Text> In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.</Text></Text>
         <Text>In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the <Link href="#anchor_14">contact details</Link> provided below. We will consider and act upon any request in accordance with applicable data protection laws.</Text>
         <Text>If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.</Text>
         <Text>If you are a resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <Link href="https://ec.europa.eu/newsroom/article29/items/612080/en" target="_blank">https://ec.europa.eu/newsroom/article29/items/612080/en</Link>.</Text>
-        <Text>If you have any questions or comments about your privacy rights, you may email us at <Link href="mailto:inquiries@runeterra.net" target="_blank">inquiries@runeterra.net</Link>.</Text>
+        <Text>If you have any questions or comments about your privacy rights, you may email us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@struxlab.com</Link>.</Text>
         <Text as='h4'>Account Information</Text>
         <Text>If you would at any time like to review or change the information in your account or terminate your account, you can contact us using the contact information provided.</Text>
         <Text>Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use, and/or comply with legal requirements.</Text>
@@ -131,7 +131,7 @@ function Privacy(): ReactFragment {
         <Text as='h3' id="anchor_10">10. Data Breach</Text>
         <Text>A privacy breach occurs when there is unauthorized access to or collection, use, disclosure, or disposal of personal information. You will be notified about data breaches when Runeterra.net believes you are likely to be at risk or serious harm. For example, a data breach may be likely to result in serious financial harm or harm to your mental or physical well-being. In the event that Runeterra.net becomes aware of a security breach which has resulted or may reult in unauthorized access, use, or disclosure of personal information, Runeterra.net will promptly investigate the matter and notify the applicable Supervisory Authority not later than 72 hours after having become aware of it, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons.</Text>
 
-        <Text as='h3' id="anchor_11" >11. Controls for Do-Not-Track Features</Text>
+        <Text as='h3' id="anchor_11">11. Controls for Do-Not-Track Features</Text>
         <Text>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&quot;DNT&quot;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy policy.</Text>
 
         <Text as='h3' id="anchor_12">12. Do California residents have specific privacy rights?</Text>
@@ -143,11 +143,11 @@ function Privacy(): ReactFragment {
         <Text><Text as='i'><Text as='b'>In Short:</Text> Yes, we will update this policy as necessary to stay compliant with relevant laws.</Text></Text>
         <Text>We may update this privacy policy from time to time. The updated version will be indicated by an updated &quot;Revised&quot; date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.</Text>
 
-        <Text as='h3' id="anchor_14" >14. How can you contact us about this policy?</Text>
+        <Text as='h3' id="anchor_14">14. How can you contact us about this policy?</Text>
         <Text>If you have questions or comments about this policy, you may email us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@runeterra.net</Link>, or use the <NextLink href="/contact">Contact Form</NextLink>.</Text>
 
         <Text as='h3'>How can you review, update, or delete the data we collect from you?</Text>
-        <Text>Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please email us at <Link href="mailto:inquiries@runeterra.net" target="_blank">inquiries@struxlab.com</Link>. We will respond to your request within 30 days.</Text>
+        <Text>Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please email us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@struxlab.com</Link>. We will respond to your request within 30 days.</Text>
       </Box>
     </Flex>
   );
