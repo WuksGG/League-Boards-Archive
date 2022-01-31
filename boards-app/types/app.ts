@@ -43,10 +43,15 @@ export type Comment = {
 
 export type Comments = Comment[];
 
+
 export type Discussion = {
   application: Application,
   content: {
     body: string,
+    body_small_html: never,
+  } | {
+    body: never,
+    body_small_html: string,
   },
   contenttype: 'string',
   dates: {
@@ -63,7 +68,7 @@ export type Discussion = {
   title: string,
   totalcomments: number,
   upvotes: number,
-  user: User,
+  user?: User,
   viewcount: number,
 };
 

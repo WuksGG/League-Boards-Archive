@@ -15,10 +15,9 @@ type DiscussionContainerProps = {
   discussion: Discussion,
   platform: Platform,
 };
-
 export default function DiscussionContainer({ discussion, platform }: DiscussionContainerProps): ReactElement {
   marked.setOptions({ breaks: true })
-  const markdown = marked.parse(discussion.content.body);
+  const markdown = discussion.content.body ? marked.parse(discussion.content.body) : discussion.content?.body_small_html;
   return (
     <Flex
       bg='#303030'
@@ -29,13 +28,18 @@ export default function DiscussionContainer({ discussion, platform }: Discussion
     >
       <Text as='h2' mb='5px' mt='0px'>{discussion.title}</Text>
       <Flex align='center' gap='8px'>
-        <Flex position='relative' h='25px' w='25px'>
-          <Image alt='Profile Icon' src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/profileicon/${discussion.user.profileIcon}.png`} layout='fill' objectFit='contain' />
-        </Flex>
+        {discussion.user && (<Flex position='relative' h='25px' w='25px'>
+          <Image
+            alt='Profile Icon'
+            src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/profileicon/${discussion.user.profileIcon}.png`}
+            layout='fill'
+            objectFit='contain'
+          />
+        </Flex>)}
         <Text fontSize='13px' as='span'>
-          <NextLink href='/'>
+          {discussion.user ? (<Text as='span'><NextLink href='/'>
             <Link color='#fff0b7'>{discussion.user.name}</Link>
-          </NextLink> ({discussion.user.realm}) submitted <TimeAgo date={discussion.dates.createdAt} /> in&nbsp;
+          </NextLink> ({discussion.user.realm})</Text>) : <Text as='span'>Riot Games</Text>} submitted <TimeAgo date={discussion.dates.createdAt} /> in&nbsp;
           <NextLink href={`/${platform}/c/${discussion.application.shortName}`}>
             <Link color='#fff0b7'>{discussion.application.name}</Link>
           </NextLink>

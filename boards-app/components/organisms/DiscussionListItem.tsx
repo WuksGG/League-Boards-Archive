@@ -31,15 +31,17 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
         <Text as='span' fontSize='11px'>votes</Text>
       </Flex>
       <Flex sx={{ flex: '1 1 100%' }} direction='column' py='5px'>
-        <NextLink href={`/${platform}/c/${shortName}/${data.id}`}>
-          <Text
-            fontWeight='bold'
-            as='span'
-            cursor='pointer'
-            color='#e8e8e8'
-          >
-            {data.title}
-          </Text>
+        <NextLink href={`/${platform}/c/${shortName}/${data.id}`} passHref>
+          <Link>
+            <Text
+              fontWeight='bold'
+              as='span'
+              cursor='pointer'
+              color='#e8e8e8'
+            >
+              {data.title}
+            </Text>
+          </Link>
         </NextLink>
         <Text
           fontSize='12px'
