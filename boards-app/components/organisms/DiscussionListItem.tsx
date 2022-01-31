@@ -18,7 +18,6 @@ type DiscussionListItemProps = {
 export default function DiscussionListItem({ data }: DiscussionListItemProps): ReactElement {
   const router = useRouter();
   const { platform, shortName } = router.query;
-  console.log(data);
   return (
     <HStack w='100%' bg='#363636'>
       <Flex

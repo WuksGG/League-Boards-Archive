@@ -3,7 +3,7 @@ import type { Discussions } from '../../types/app';
 
 type Result = ((any) | (null | Discussions))[];
 
-export default async function getDiscussions(appId: string): Promise<Result> {
+export default async function getDiscussions(appId: string, offset: number): Promise<Result> {
   const client = await pg.connect();
   try {
     const result = await client.query(`
@@ -44,8 +44,9 @@ export default async function getDiscussions(appId: string): Promise<Result> {
       FROM threads t, cat
       WHERE cat.id = t.applicationid
       ORDER BY t.createdat DESC
+      OFFSET $2
       LIMIT 20;
-    `, [appId]);
+    `, [appId, offset]);
     return [null, result.rows];
   } catch(e) {
     return [e, null];

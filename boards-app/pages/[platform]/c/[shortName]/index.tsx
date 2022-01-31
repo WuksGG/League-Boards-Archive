@@ -15,7 +15,6 @@ type CategoryProps = {
 
 export default function Category({ discussions, application, page }: CategoryProps): ReactElement {
   const router = useRouter();
-
   return (
     <Flex direction='column' w='100%'>
       <Breadcrumbs pagePath={[
@@ -34,7 +33,7 @@ export default function Category({ discussions, application, page }: CategoryPro
           );
         })}
       </VStack>
-      <PaginationBar page={page} total={151654} pathName={`/${router.query.platform}/c/${application.shortName}`} />
+      <PaginationBar page={page} total={application.total} pathName={`/${router.query.platform}/c/${application.shortName}`} />
     </Flex>
   );
 }
@@ -47,16 +46,22 @@ type GetServerSidePropsContext = {
     page?: string,
   }
 };
-type GetServerSideProps = {
+type GetServerSideProps = { props?: never, notFound: Boolean } | {
+  notFound?: never,
   props: {
     pageTitle: string,
   } & CategoryProps,
 };
 export async function getServerSideProps(context: GetServerSidePropsContext): Promise<GetServerSideProps> {
-  if (context.query?.page) console.log(context.query?.page);
-  const [err, discussions] = await getDiscussions(context.params?.shortName);
-  const application = discussions[0].application;
   const page = Number(context.query?.page) || 1;
+  const offset = (20 * page) - 20;
+  const [err, discussions] = await getDiscussions(context.params?.shortName, offset);
+  if (!discussions.length) {
+    return {
+      notFound: true,
+    };
+  }
+  const application = discussions[0].application;
   return {
     props: {
       pageTitle: application.name,
