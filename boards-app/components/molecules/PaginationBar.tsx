@@ -40,35 +40,30 @@ function PaginationBar(props: PaginationBarProps): ReactElement {
       justify='flex-end'
       mt='10px'
       sx={{
-        '& > button': {
+        '& button': {
           cursor: 'pointer',
+          border: '1px solid #4e4e4e',
+          color: '#fff',
+          borderRadius: '1px',
         },
       }}
     >
-      <IconButton
-        aria-label='First page'
-        icon={<ArrowLeftIcon />}
-        color='#fff'
-        fontSize='9px'
-        borderRadius='1px'
-        borderWidth='1px'
-        isDisabled
-      />
-      <IconButton
-        aria-label='Previous page'
-        icon={<ChevronLeftIcon />}
-        color='#fff'
-        borderRadius='1px'
-        borderWidth='1px'
-        isDisabled
-      />
+      <Flex gap='4px'>
+        <IconButton
+          aria-label='First page'
+          icon={<ArrowLeftIcon />}
+          color='#fff'
+          fontSize='9px'
+          isDisabled
+        />
+        <IconButton
+          aria-label='Previous page'
+          icon={<ChevronLeftIcon />}
+          isDisabled
+        />
+      </Flex>
       <Flex
         gap='5px'
-        sx={{
-          '& > button': {
-            cursor: 'pointer',
-          },
-        }}
       >
         <PageButton value='1' />
         <PageButton value='2' isActive />
@@ -76,21 +71,17 @@ function PaginationBar(props: PaginationBarProps): ReactElement {
         <PageButton value='4' />
         <PageButton value='5' />
       </Flex>
-      <IconButton
-        aria-label='Next page'
-        icon={<ChevronRightIcon />}
-        color='#fff'
-        borderRadius='1px'
-        borderWidth='1px'
-      />
-      <IconButton
-        aria-label='First page'
-        icon={<ArrowRightIcon />}
-        color='#fff'
-        fontSize='9px'
-        borderRadius='1px'
-        borderWidth='1px'
-      />
+      <Flex gap='4px'>
+        <IconButton
+          aria-label='Next page'
+          icon={<ChevronRightIcon />}
+        />
+        <IconButton
+          aria-label='First page'
+          icon={<ArrowRightIcon />}
+          fontSize='9px'
+        />
+      </Flex>
     </Flex>
   );
 }

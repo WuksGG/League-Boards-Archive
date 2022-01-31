@@ -144,7 +144,7 @@ function Privacy(): ReactElement {
         <Text>We may update this privacy policy from time to time. The updated version will be indicated by an updated &quot;Revised&quot; date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.</Text>
 
         <Text as='h3' id="anchor_14">14. How can you contact us about this policy?</Text>
-        <Text>If you have questions or comments about this policy, you may email us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@runeterra.net</Link>, or use the <NextLink href="/contact">Contact Form</NextLink>.</Text>
+        <Text>If you have questions or comments about this policy, you may email us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@struxlab.com</Link>, or use the <NextLink href="/contact">Contact Form</NextLink>.</Text>
 
         <Text as='h3'>How can you review, update, or delete the data we collect from you?</Text>
         <Text>Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please email us at <Link href="mailto:inquiries@struxlab.com" target="_blank">inquiries@struxlab.com</Link>. We will respond to your request within 30 days.</Text>
