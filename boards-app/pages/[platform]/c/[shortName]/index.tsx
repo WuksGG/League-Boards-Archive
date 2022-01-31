@@ -14,6 +14,9 @@ type CategoryProps = {
 
 export default function Category({ discussions, application }: CategoryProps): ReactElement {
   const router = useRouter();
+  const paginationClickHandler = (page: number): void => {
+    console.log('clicked', page);
+  };
   return (
     <Flex direction='column' w='100%'>
       <Breadcrumbs pagePath={[
@@ -32,7 +35,7 @@ export default function Category({ discussions, application }: CategoryProps): R
           );
         })}
       </VStack>
-      <PaginationBar />
+      <PaginationBar page={1} total={151654} onClick={paginationClickHandler} />
     </Flex>
   );
 }

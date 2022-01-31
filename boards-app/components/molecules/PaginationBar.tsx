@@ -2,6 +2,7 @@ import {
   IconButton,
   Flex,
   Button,
+  Text,
 } from '@chakra-ui/react';
 import {
   ArrowLeftIcon,
@@ -13,27 +14,31 @@ import type { ReactElement } from 'react';
 
 
 type PageButtonProps = {
-  value: string | number,
-  isActive?: boolean,
+  value: number,
+  currentPage: number,
+  onClick: (page: number) => void,
 };
-function PageButton({value, isActive}: PageButtonProps) {
+function PageButton({value, currentPage, onClick}: PageButtonProps) {
+  const buttonClickHandler = (): void => {
+    onClick(value);
+  };
   return (
     <Button
-      borderRadius='1px'
-      borderWidth='1px'
-      borderStyle='solid'
       fontWeight='500'
       fontSize='13px'
-      color='#fff'
-      isActive={isActive}
+      isActive={value === currentPage}
+      onClick={buttonClickHandler}
     >{value}</Button>
   );
 }
 
 type PaginationBarProps = {
-
+  page: number,
+  total: number,
+  onClick: (page: number) => void,
 };
-function PaginationBar(props: PaginationBarProps): ReactElement {
+function PaginationBar({ page, total, onClick }: PaginationBarProps): ReactElement {
+  const totalPages = Math.ceil(total / 20);
   return (
     <Flex
       gap='12px'
@@ -50,36 +55,26 @@ function PaginationBar(props: PaginationBarProps): ReactElement {
     >
       <Flex gap='4px'>
         <IconButton
-          aria-label='First page'
-          icon={<ArrowLeftIcon />}
-          color='#fff'
-          fontSize='9px'
-          isDisabled
-        />
-        <IconButton
           aria-label='Previous page'
           icon={<ChevronLeftIcon />}
-          isDisabled
+          isDisabled={page === 1}
         />
       </Flex>
       <Flex
         gap='5px'
       >
-        <PageButton value='1' />
-        <PageButton value='2' isActive />
-        <PageButton value='3' />
-        <PageButton value='4' />
-        <PageButton value='5' />
+        <PageButton value={1} currentPage={page} onClick={onClick} />
+        {page > 5 && totalPages > 10 && <Text p='0px 10px'>&hellip;</Text>}
+        <PageButton value={2} currentPage={page} isActive onClick={onClick} />
+        <PageButton value={3} currentPage={page} onClick={onClick} />
+        <PageButton value={4} currentPage={page} onClick={onClick} />
+        {(page < totalPages - 3) && <Text p='0px 10px'>&hellip;</Text>}
+        <PageButton value={totalPages} currentPage={page} onClick={onClick} />
       </Flex>
       <Flex gap='4px'>
         <IconButton
           aria-label='Next page'
           icon={<ChevronRightIcon />}
-        />
-        <IconButton
-          aria-label='First page'
-          icon={<ArrowRightIcon />}
-          fontSize='9px'
         />
       </Flex>
     </Flex>
