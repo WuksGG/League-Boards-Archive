@@ -38,8 +38,14 @@ The League Boards Archive project aims to not only provide an interface for this
 * [Marked.js](https://marked.js.org/)
 
 ### Supported & Planned Region Support
-- [ ] Europe
+- [ ] Europe (All languages)
 - [ ] North America
+- [ ] Turkey
+- [ ] Russia
+- [ ] Latin America
+- [ ] Oceania
+- [ ] Japan
+- [ ] PBE
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -96,7 +102,8 @@ Project Link: https://github.com/WuksGG/League-Boards-Archive
 ## Acknowledgments
 
 * [othneildrew/Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-* [Axios](https://www.npmjs.com/package/axios)
 * [React Timeago](https://www.npmjs.com/package/react-timeago), [timeago.js](https://timeago.org/)
+* [u/DarkAndromeda31](https://www.reddit.com/r/leagueoflegends/comments/fc9ra0/all_the_stickers_from_the_league_forums_in_one/) - Backing up and reposting Boards stickers
+* Riot TheDjinn
 
 <p align="right">(<a href="#top">back to top</a>)</p>
