@@ -14,6 +14,7 @@ export type Application = {
   shortName: string,
   name: string,
   locale: string,
+  total: number,
 };
 
 export type User = {

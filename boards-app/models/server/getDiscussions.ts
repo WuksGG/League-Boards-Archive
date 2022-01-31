@@ -12,7 +12,9 @@ export default async function getDiscussions(appId: string): Promise<Result> {
         FROM categories
         WHERE shortname = $1
       )
-      SELECT t.id, t.title, t.upvotes, t.downvotes, t.viewcount, t.softcomments, t.totalcomments, t.contenttype, t.content, t.issticky, t.isglobalsticky, t.hasriotercomments,
+      SELECT t.id, t.title, t.upvotes, t.downvotes, t.viewcount, t.softcomments,
+      t.totalcomments, t.contenttype, t.content, t.issticky, t.isglobalsticky,
+      t.hasriotercomments,
       (jsonb_build_object(
         'createdAt', t.createdat,
         'modifiedAt', t.modifiedat,
@@ -22,7 +24,8 @@ export default async function getDiscussions(appId: string): Promise<Result> {
         'id', cat.id,
         'name', cat.name,
         'shortName', cat.shortname,
-        'locale', cat.locale
+        'locale', cat.locale,
+        'total', (SELECT count(id) FROM threads WHERE applicationid = cat.id)
       )) as application,
       (
         SELECT jsonb_build_object(
@@ -41,7 +44,7 @@ export default async function getDiscussions(appId: string): Promise<Result> {
       FROM threads t, cat
       WHERE cat.id = t.applicationid
       ORDER BY t.createdat DESC
-      LIMIT 15;
+      LIMIT 20;
     `, [appId]);
     return [null, result.rows];
   } catch(e) {

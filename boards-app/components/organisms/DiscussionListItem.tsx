@@ -3,7 +3,6 @@ import {
   Text,
   HStack,
   Link,
-  VStack,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -19,7 +18,7 @@ type DiscussionListItemProps = {
 export default function DiscussionListItem({ data }: DiscussionListItemProps): ReactElement {
   const router = useRouter();
   const { platform, shortName } = router.query;
-  const createdAt = new Date(data.dates.createdAt);
+  console.log(data);
   return (
     <HStack w='100%' bg='#363636'>
       <Flex
@@ -47,7 +46,16 @@ export default function DiscussionListItem({ data }: DiscussionListItemProps): R
           as='span'
           color='#dedede'
         >
-          by <NextLink href='/' passHref><Link color='#fff0b7'>{data.user.name}</Link></NextLink> ({data.user.realm}) in&nbsp;
+          {data.user && (
+            <Text as='span'>by&nbsp;
+            <NextLink href='/' passHref>
+              <Link color='#fff0b7'>
+                {data.user.name}
+              </Link>
+            </NextLink>
+            &nbsp;({data.user.realm}) in&nbsp;
+            </Text>
+          )}
           <NextLink href='/' passHref>
             <Link color='#fff0b7'>{data.application.name}</Link>
           </NextLink>&nbsp;

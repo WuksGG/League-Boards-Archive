@@ -10,13 +10,12 @@ import PaginationBar from '../../../../components/molecules/PaginationBar';
 type CategoryProps = {
   discussions: Discussions,
   application: Application,
+  page: number,
 };
 
-export default function Category({ discussions, application }: CategoryProps): ReactElement {
+export default function Category({ discussions, application, page }: CategoryProps): ReactElement {
   const router = useRouter();
-  const paginationClickHandler = (page: number): void => {
-    console.log('clicked', page);
-  };
+
   return (
     <Flex direction='column' w='100%'>
       <Breadcrumbs pagePath={[
@@ -35,7 +34,7 @@ export default function Category({ discussions, application }: CategoryProps): R
           );
         })}
       </VStack>
-      <PaginationBar page={1} total={151654} onClick={paginationClickHandler} />
+      <PaginationBar page={page} total={151654} pathName={`/${router.query.platform}/c/${application.shortName}`} />
     </Flex>
   );
 }
@@ -57,11 +56,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext): Pr
   if (context.query?.page) console.log(context.query?.page);
   const [err, discussions] = await getDiscussions(context.params?.shortName);
   const application = discussions[0].application;
+  const page = Number(context.query?.page) || 1;
   return {
     props: {
       pageTitle: application.name,
       discussions,
       application,
+      page,
     },
   };
 }

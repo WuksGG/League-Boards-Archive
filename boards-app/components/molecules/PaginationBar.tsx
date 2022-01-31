@@ -11,33 +11,39 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import type { ReactElement } from 'react';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 
 
 type PageButtonProps = {
   value: number,
   currentPage: number,
-  onClick: (page: number) => void,
+  pathName: string,
 };
-function PageButton({value, currentPage, onClick}: PageButtonProps) {
-  const buttonClickHandler = (): void => {
-    onClick(value);
-  };
+function PageButton({value, currentPage, pathName}: PageButtonProps): ReactElement {
   return (
-    <Button
-      fontWeight='500'
-      fontSize='13px'
-      isActive={value === currentPage}
-      onClick={buttonClickHandler}
-    >{value}</Button>
+    <NextLink
+      href={{
+        pathname: pathName,
+        query: { page: value },
+      }}
+      passHref
+    >
+      <Button
+        fontWeight='500'
+        fontSize='13px'
+        isActive={value === currentPage}
+      >{value}</Button>
+    </NextLink>
   );
 }
 
 type PaginationBarProps = {
   page: number,
   total: number,
-  onClick: (page: number) => void,
+  pathName: string,
 };
-function PaginationBar({ page, total, onClick }: PaginationBarProps): ReactElement {
+function PaginationBar({ page, total, pathName }: PaginationBarProps): ReactElement {
   const totalPages = Math.ceil(total / 20);
   return (
     <Flex
@@ -63,13 +69,13 @@ function PaginationBar({ page, total, onClick }: PaginationBarProps): ReactEleme
       <Flex
         gap='5px'
       >
-        <PageButton value={1} currentPage={page} onClick={onClick} />
+        <PageButton value={1} currentPage={page} pathName={pathName} />
         {page > 5 && totalPages > 10 && <Text p='0px 10px'>&hellip;</Text>}
-        <PageButton value={2} currentPage={page} isActive onClick={onClick} />
-        <PageButton value={3} currentPage={page} onClick={onClick} />
-        <PageButton value={4} currentPage={page} onClick={onClick} />
+        <PageButton value={2} currentPage={page} pathName={pathName} />
+        <PageButton value={3} currentPage={page} pathName={pathName} />
+        <PageButton value={4} currentPage={page} pathName={pathName} />
         {(page < totalPages - 3) && <Text p='0px 10px'>&hellip;</Text>}
-        <PageButton value={totalPages} currentPage={page} onClick={onClick} />
+        <PageButton value={totalPages} currentPage={page} pathName={pathName} />
       </Flex>
       <Flex gap='4px'>
         <IconButton
