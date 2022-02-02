@@ -16,6 +16,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>{pageTitle}</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta property="og:image" content="https://archive2.runeterra.net/assets/images/logo.png" />
+          <meta property="og:title" content={pageProps.pageTitle || "League Boards Archive"} />
+          <meta property="og:description" content="An archive of the League of Legends Boards" />
+          <meta property="og:site_name" content="League Boards Archive" />
         </Head>
         <Component {...pageProps} />
       </Layout>
