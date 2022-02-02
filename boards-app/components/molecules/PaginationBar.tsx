@@ -60,11 +60,21 @@ function PaginationBar({ page, total, pathName }: PaginationBarProps): ReactElem
       }}
     >
       <Flex gap='4px'>
-        <IconButton
-          aria-label='Previous page'
-          icon={<ChevronLeftIcon />}
-          isDisabled={page === 1}
-        />
+        <NextLink
+          href={{
+            pathname: pathName,
+            query: {
+              page: page - 1,
+            },
+          }}
+          passHref
+        >
+          <IconButton
+            aria-label='Previous page'
+            icon={<ChevronLeftIcon />}
+            isDisabled={page === 1}
+          />
+        </NextLink>
       </Flex>
       <Flex
         gap='5px'
@@ -78,10 +88,21 @@ function PaginationBar({ page, total, pathName }: PaginationBarProps): ReactElem
         <PageButton value={totalPages} currentPage={page} pathName={pathName} />
       </Flex>
       <Flex gap='4px'>
-        <IconButton
-          aria-label='Next page'
-          icon={<ChevronRightIcon />}
-        />
+        <NextLink
+          href={{
+            pathname: pathName,
+            query: {
+              page: page + 1,
+            },
+          }}
+          passHref
+        >
+          <IconButton
+            aria-label='Next page'
+            icon={<ChevronRightIcon />}
+            isDisabled={page === totalPages}
+          />
+        </NextLink>
       </Flex>
     </Flex>
   );
